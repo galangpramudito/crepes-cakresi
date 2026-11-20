@@ -2,15 +2,11 @@ import React, { useState } from 'react';
 import { 
   MapPin, 
   Clock, 
-  Phone, 
-  MessageCircle, 
   Navigation, 
-  CheckCircle2, 
+  Check, 
   Store, 
   ExternalLink,
-  Car,
-  Wifi,
-  Smartphone
+  MessageCircle
 } from 'lucide-react';
 import { STORE_INFO } from '../data/storeData';
 
@@ -19,32 +15,32 @@ export default function LocationSection() {
   const activeOutlet = STORE_INFO.outlets[activeOutletIndex];
 
   return (
-    <section id="lokasi" className="py-16 sm:py-24 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="lokasi" className="py-16 sm:py-20 bg-white border-b border-stone-200/60">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3">
-          <span className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-xs sm:text-sm font-extrabold px-3.5 py-1.5 rounded-full uppercase tracking-wider">
-            📍 Lokasi Outlet & Jam Operasional
+        <div className="max-w-2xl mx-auto text-center space-y-2">
+          <span className="text-amber-800 font-bold text-xs uppercase tracking-wider block">
+            Informasi Outlet
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-stone-900 tracking-tight">
-            Kunjungi Cabang Crepes Cak Resz Terdekat
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-950">
+            Lokasi Cabang & Jam Buka
           </h2>
-          <p className="text-stone-600 text-sm sm:text-base">
-            Nikmati aroma wangi panggangan crepes langsung di tempat, atau pesan awal lewat WhatsApp untuk langsung ambil tanpa antre!
+          <p className="text-stone-600 text-xs sm:text-sm">
+            Kunjungi gerai terdekat kami untuk dine-in santai atau takeaway cepat.
           </p>
         </div>
 
-        {/* Outlet Switcher Tabs */}
-        <div className="mt-10 flex justify-center gap-3">
+        {/* Clean Outlet Switcher Tabs */}
+        <div className="mt-8 flex justify-center gap-2">
           {STORE_INFO.outlets.map((outlet, idx) => (
             <button
               key={outlet.id}
               onClick={() => setActiveOutletIndex(idx)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm transition-all ${
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all ${
                 activeOutletIndex === idx
-                  ? 'bg-amber-600 text-white shadow-lg shadow-amber-600/25 scale-105'
-                  : 'bg-amber-50 text-stone-700 hover:bg-amber-100 border border-amber-200'
+                  ? 'bg-stone-900 text-white shadow-sm'
+                  : 'bg-stone-100 text-stone-600 hover:text-stone-900 border border-stone-200'
               }`}
             >
               <Store className="w-4 h-4" />
@@ -53,95 +49,92 @@ export default function LocationSection() {
           ))}
         </div>
 
-        {/* Active Outlet Detail Container */}
-        <div className="mt-8 bg-amber-50/50 rounded-3xl border border-amber-200/80 p-6 sm:p-8 lg:p-10 shadow-sm">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        {/* Detail Box */}
+        <div className="mt-6 bg-[#FAF9F5] rounded-2xl border border-stone-200 p-6 sm:p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Left Info Column */}
-            <div className="lg:col-span-6 flex flex-col justify-between space-y-6">
-              
+            <div className="lg:col-span-6 space-y-5">
               <div>
-                <div className="inline-block bg-amber-500 text-stone-950 font-black text-[11px] px-3 py-1 rounded-full uppercase tracking-wider mb-2">
+                <span className="text-[11px] font-bold text-amber-800 bg-amber-100/60 px-2 py-0.5 rounded">
                   {activeOutlet.badge}
-                </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-stone-900">
+                </span>
+                <h3 className="text-xl font-extrabold text-stone-950 mt-1.5">
                   {activeOutlet.name}
                 </h3>
               </div>
 
               {/* Address */}
-              <div className="bg-white p-4 rounded-2xl border border-amber-100 flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-xs font-bold text-stone-900 block">Alamat Lengkap:</strong>
-                  <p className="text-xs sm:text-sm text-stone-600 mt-0.5 leading-relaxed">
-                    {activeOutlet.address}
-                  </p>
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">
+                  Alamat Lengkap
+                </span>
+                <div className="flex items-start gap-2 text-stone-700 text-xs sm:text-sm leading-relaxed">
+                  <MapPin className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                  <span>{activeOutlet.address}</span>
                 </div>
               </div>
 
-              {/* Operating Hours */}
-              <div className="bg-white p-4 rounded-2xl border border-amber-100 flex items-start gap-3">
-                <Clock className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-                <div className="w-full">
-                  <strong className="text-xs font-bold text-stone-900 block">Jam Operasional:</strong>
-                  <div className="mt-1 text-xs sm:text-sm text-stone-600 space-y-1">
-                    <div className="flex justify-between">
-                      <span>Senin - Jumat:</span>
-                      <strong className="text-amber-800">{activeOutlet.hoursWeekday}</strong>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>Sabtu - Minggu:</span>
-                      <strong className="text-amber-800">{activeOutlet.hoursWeekend}</strong>
-                    </div>
+              {/* Operating Hours Table */}
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">
+                  Jam Buka
+                </span>
+                <div className="bg-white p-3 rounded-xl border border-stone-200 text-xs space-y-1.5 text-stone-700">
+                  <div className="flex justify-between">
+                    <span>Senin - Jumat:</span>
+                    <strong className="text-stone-900">{activeOutlet.hoursWeekday}</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Sabtu - Minggu:</span>
+                    <strong className="text-stone-900">{activeOutlet.hoursWeekend}</strong>
                   </div>
                 </div>
               </div>
 
-              {/* Facilities Checklist */}
-              <div>
-                <span className="text-xs font-bold uppercase text-stone-500 tracking-wider block mb-2">
-                  Fasilitas Outlet:
+              {/* Facilities */}
+              <div className="space-y-1.5">
+                <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">
+                  Fasilitas
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700">
+                <div className="flex flex-wrap gap-1.5 text-xs text-stone-600">
                   {activeOutlet.facilities.map((fac, i) => (
-                    <div key={i} className="flex items-center gap-1.5 bg-white/80 px-3 py-2 rounded-xl border border-amber-100">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span key={i} className="inline-flex items-center gap-1 bg-white px-2.5 py-1 rounded-lg border border-stone-200 text-[11px]">
+                      <Check className="w-3 h-3 text-emerald-600" />
                       <span>{fac}</span>
-                    </div>
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Action Buttons for Location */}
-              <div className="pt-2 flex flex-wrap gap-3">
+              {/* Action Buttons */}
+              <div className="pt-2 flex flex-wrap gap-2.5">
                 <a
                   href={activeOutlet.gmapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 min-w-[180px] bg-amber-500 hover:bg-amber-600 text-white font-extrabold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2"
+                  className="inline-flex items-center gap-1.5 bg-stone-900 hover:bg-stone-800 text-white text-xs font-semibold px-4 py-2.5 rounded-xl transition-all shadow-sm"
                 >
-                  <Navigation className="w-4 h-4" />
-                  <span>Petunjuk Arah (Google Maps)</span>
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <Navigation className="w-3.5 h-3.5" />
+                  <span>Buka di Google Maps</span>
+                  <ExternalLink className="w-3 h-3 text-stone-400" />
                 </a>
 
                 <a
-                  href={`https://wa.me/${activeOutlet.phone.replace(/[^0-9]/g, '').replace(/^0/, '62')}?text=Halo%20Admin%20${encodeURIComponent(activeOutlet.name)},%20saya%20mau%20tanya%20menu%20dan%20lokasi`}
+                  href={`https://wa.me/${activeOutlet.phone.replace(/[^0-9]/g, '').replace(/^0/, '62')}?text=Halo%20Admin%20${encodeURIComponent(activeOutlet.name)},%20saya%20mau%20pesan%20crepes`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-md transition-colors flex items-center justify-center gap-2"
+                  className="inline-flex items-center gap-1.5 bg-white hover:bg-stone-50 border border-stone-300 text-stone-800 text-xs font-semibold px-4 py-2.5 rounded-xl transition-all"
                 >
-                  <MessageCircle className="w-4 h-4" />
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Chat Cabang Ini</span>
                 </a>
               </div>
-
             </div>
 
-            {/* Right Map Column */}
-            <div className="lg:col-span-6 flex flex-col">
-              <div className="w-full h-72 sm:h-96 lg:h-full min-h-[300px] rounded-3xl overflow-hidden border-2 border-amber-200/80 shadow-md relative bg-amber-100">
+            {/* Right Map Embed Column */}
+            <div className="lg:col-span-6 w-full">
+              <div className="w-full h-64 sm:h-80 rounded-xl overflow-hidden border border-stone-200 bg-stone-100">
                 <iframe
                   src={activeOutlet.mapEmbedSrc}
                   width="100%"
@@ -153,24 +146,6 @@ export default function LocationSection() {
                   title={`Google Maps ${activeOutlet.name}`}
                   className="w-full h-full"
                 />
-                
-                {/* Overlay Badge */}
-                <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md px-3 py-2 rounded-xl border border-amber-200 shadow-md text-xs font-bold text-stone-800 flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Buka Hari Ini ({activeOutlet.hoursWeekday})</span>
-                </div>
-              </div>
-
-              <div className="mt-3 flex items-center justify-between text-xs text-stone-500 px-2">
-                <span>Tersedia parkir kendaraan roda 2 dan roda 4</span>
-                <a 
-                  href={activeOutlet.gmapsUrl}
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-amber-700 font-bold hover:underline"
-                >
-                  Buka Tampilan Penuh
-                </a>
               </div>
             </div>
 
