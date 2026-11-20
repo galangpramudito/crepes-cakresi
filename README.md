@@ -1,87 +1,43 @@
-# 🥞 Crepes Cak Resz - Static React Landing Page UMKM
+# 🥞 Crepes Cak Resz - Landing Page Jajanan Kaki Lima
 
-Landing page modern, responsif, dan interaktif untuk UMKM kuliner **Crepes Cak Resz**. Dibuat dengan **React + Vite + Tailwind CSS**, dilengkapi fitur katalog menu lengkap dengan harga, informasi cabang & lokasi dengan Google Maps, kalkulator simulasi pesanan otomatis terhubung ke WhatsApp, galeri, keunggulan, ulasan pelanggan, dan FAQ.
-
----
-
-## ✨ Fitur Utama
-
-1. **Header & Navigasi Responsif**:
-   - Logo UMKM dengan status buka hari ini
-   - Navigasi mulus (*smooth scrolling*) ke setiap section
-   - Floating cart drawer dengan indikator jumlah pesanan
-   - Tombol cepat order WhatsApp
-
-2. **Banner Promo & Hero Section**:
-   - Penawaran promo harian & diskon pelajar
-   - Headline menggugah selera dengan jaminan 100% Halal
-   - Mockup visual crepes interaktif dengan badge kerenyahan
-
-3. **Detail Kualitas & Keunggulan (Why Us)**:
-   - Resep rahasia *golden crispy* tahan 1 jam
-   - Topping premium berlimpah (Nutella, Ovomaltine, Keju Cheddar & Mozzarella)
-   - Live cooking dipanggang dadakan selalu hangat
-   - Harga ramah kantong mulai dari Rp 7.000
-
-4. **Katalog Menu & Harga Lengkap**:
-   - Filter kategori: Semua, Paling Laris, Crepes Manis, Crepes Gurih, Paket Hemat, Minuman Segar
-   - Pencarian instan (*live search*) berdasarkan nama menu / bahan topping
-   - Modal kustomisasi: pilihan tingkat kerenyahan (*standard*, *extra crispy*), opsi topping tambahan (*extra cheese*, *almond*, *oreo*, dll), dan catatan khusus
-   - Badge Best Seller, Promo, dan rating per menu
-
-5. **Simulasi Pesanan & WhatsApp Order Direct**:
-   - Keranjang pesanan dinamis
-   - Pilih cabang outlet (Pandanaran / Kaliurang KM 5)
-   - Pilih jenis pesanan (Bungkus / Dine-in)
-   - Otomatis membuat format teks pesan WhatsApp siap kirim ke kasir/admin
-
-6. **Informasi Lokasi & Jam Operasional**:
-   - Detail 2 cabang outlet (Cabang Utama & Cabang Kampus)
-   - Jam operasional hari kerja & akhir pekan
-   - Peta interaktif Google Maps Embed & petunjuk arah satu klik
-   - Fasilitas cabang (WiFi, Parkir, Stopkontak, QRIS)
-
-7. **Galeri & Suasana**:
-   - Foto-foto penggugah selera saat proses pembuatan dan lelehan keju/cokelat
-
-8. **Testimoni & Rating Nyata Pelanggan**:
-   - Ulasan bintang 5 dari mahasiswa, pekerja kantoran, dan keluarga
-
-9. **Pertanyaan Umum (FAQ) Interaktif**:
-   - Sertifikasi halal, tips menjaga kerenyahan crepes, catering partai besar/event, metode pembayaran QRIS/Tunai
+Landing page statis, bersih, dan ramah untuk UMKM kuliner gerobak kaki lima **Crepes Cak Resz**. Dibuat dengan **React 18 + Vite + Tailwind CSS**, tanpa sistem digitalisasi yang berlebihan, mencerminkan identitas lapak kaki lima yang otentik dan merakyat.
 
 ---
 
-## 🚀 Cara Menjalankan Project
+## 📌 Karakteristik & Fitur
 
-### Prasyarat
-- Node.js (v18 ke atas disarankan)
-- npm / pnpm / yarn
+1. **Konsep Kaki Lima Otentik**:
+   - Satu titik lapak mangkal (depan Alfamidi Pandanaran, samping lapangan voli).
+   - Jam mangkal sore hingga malam: **16.00 - 22.00 WIB** (atau sampai adonan habis).
+   - Tanpa bahasa korporat atau klaim resep rahasia; fokus pada: renyah, topping melimpah, dan dimasak dadakan di gerobak.
 
-### Instalasi & Menjalankan Mode Development
+2. **Daftar Menu & Harga Papan Gerobak**:
+   - **Crepes Manis**: Cokelat Susu (Rp 7rb), Keju Susu (Rp 9rb), Choco Cheese Spesial (Rp 11rb), Pisang Cokelat Keju (Rp 13rb), Strawberry Susu (Rp 8rb), Oreo Susu (Rp 10rb).
+   - **Crepes Gurih**: Sosis Mayo (Rp 10rb), Sosis Keju Mayo (Rp 12rb), Smoked Beef Mayo (Rp 14rb).
+   - **Minuman Dingin**: Es Teh Manis Jumbo (Rp 4rb), Es Jeruk Peras (Rp 5rb), Air Mineral (Rp 3rb).
+   - **Pilihan Topping Tambahan**: Extra Keju, Extra Cokelat, Sosis, Pisang, Oreo (+Rp 2rb - 3rb).
+
+3. **Tanpa Digitalisasi Berlebihan**:
+   - Tidak ada keranjang belanja e-commerce atau form checkout yang rumit.
+   - Tersedia tombol cepat **"Titip Pesan via WA"** untuk pelanggan yang ingin memesan terlebih dahulu agar tidak perlu antre lama saat tiba di gerobak.
+
+4. **Informasi Lokasi Mangkal**:
+   - Patokan jelas (tenda payung kuning gerobak Cak Resz di pelataran minimarket).
+   - Peta Google Maps embed langsung ke titik mangkal.
+   - Pembayaran: Tunai & QRIS gerobak.
+
+---
+
+## 🚀 Menjalankan Project
+
 ```bash
 # Masuk ke folder project
 cd crewebs
 
 # Jalankan server development
 npm run dev
-```
-Buka browser di `http://localhost:5173`.
 
-### Build untuk Produksi
-```bash
+# Build produksi statis
 npm run build
 ```
-Hasil build statis akan tersimpan di folder `dist/` dan siap di-deploy ke Vercel, Netlify, GitHub Pages, Cloudflare Pages, atau hosting apa pun.
-
----
-
-## 🛠️ Tech Stack
-- **Framework:** React 18
-- **Build Tool:** Vite 5
-- **Styling:** Tailwind CSS 3
-- **Icons:** Lucide React
-- **Typography:** Plus Jakarta Sans & Outfit (Google Fonts)
-
----
-*Dibuat untuk memajukan UMKM Kuliner Indonesia 🇮🇩*
+Hasil build statis tersimpan di folder `dist/` dan siap diunggah ke hosting statis mana pun.
