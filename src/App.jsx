@@ -15,12 +15,12 @@ import { STORE_INFO } from './data/storeData';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#FAF9F5] text-stone-800 flex flex-col font-sans selection:bg-amber-800 selection:text-white relative">
+    <div className="min-h-screen bg-[#FFFDF9] text-stone-800 flex flex-col font-sans selection:bg-amber-600 selection:text-white relative">
       
-      {/* Clean Navbar */}
+      {/* Clean & Attractive Navbar */}
       <Navbar />
 
-      {/* Main Sections */}
+      {/* Main Flow */}
       <main className="flex-1">
         <Hero />
         
@@ -39,20 +39,20 @@ export default function App() {
         <FaqSection />
       </main>
 
-      {/* Clean Footer */}
+      {/* Footer */}
       <Footer />
 
       {/* Direct Floating WhatsApp Contact Button to Mas Resi */}
-      <div className="fixed bottom-4 right-4 z-40">
+      <div className="fixed bottom-5 right-5 z-40">
         <a
           href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20pesan%20crepes`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-emerald-700 hover:bg-emerald-800 text-white px-3.5 py-2.5 rounded-xl shadow-md flex items-center gap-2 text-xs font-bold transition-all"
-          title="Hubungi Mas Resi via WhatsApp"
+          className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-4 py-3 rounded-2xl shadow-lg shadow-green-700/30 flex items-center gap-2 text-xs font-black transition-all hover:scale-105 active:scale-95 group"
+          title="Chat Mas Resi via WhatsApp"
         >
-          <MessageCircle className="w-4 h-4" />
-          <span>Chat Mas Resi (WA)</span>
+          <MessageCircle className="w-5 h-5 group-hover:rotate-12 transition-transform" />
+          <span className="hidden sm:inline">Chat Mas Resi</span>
         </a>
       </div>
 

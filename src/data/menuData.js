@@ -1,9 +1,9 @@
 export const MENU_CATEGORIES = [
-  { id: 'all', name: 'Semua Menu' },
-  { id: 'manis', name: 'Crepes Manis' },
-  { id: 'gurih', name: 'Crepes Gurih' },
-  { id: 'catering', name: 'Paket Catering Acara' },
-  { id: 'minuman', name: 'Minuman Dingin' },
+  { id: 'all', name: '✨ Semua Menu', icon: 'Sparkles' },
+  { id: 'manis', name: '🍫 Crepes Manis', icon: 'Heart' },
+  { id: 'gurih', name: '🧀 Crepes Gurih', icon: 'Award' },
+  { id: 'catering', name: '🎉 Paket Catering Acara', icon: 'PartyPopper' },
+  { id: 'minuman', name: '🥤 Minuman Dingin', icon: 'Coffee' },
 ];
 
 export const MENU_ITEMS = [
@@ -14,9 +14,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 7000,
     isPopular: true,
-    description: 'Adonan renyah dengan taburan cokelat meses melimpah dan siraman susu kental manis.',
-    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=600&q=80',
-    tags: ['Cokelat', 'Susu']
+    badge: 'Paling Murah',
+    description: 'Adonan garing keemasan dengan olesan margarin harum, taburan cokelat meses tebal, dan kental manis.',
+    image: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=700&q=80',
+    tags: ['Cokelat Meses', 'Susu Kental', 'Ekstra Krispi']
   },
   {
     id: 'm2',
@@ -24,9 +25,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 9000,
     isPopular: true,
-    description: 'Parutan keju tebal gurih berpadu susu kental manis legit dalam balutan kulit crepes garing.',
-    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80',
-    tags: ['Keju', 'Susu']
+    badge: 'Favorit Anak-anak',
+    description: 'Parutan keju cheddar melimpah disiram susu kental manis. Perpaduan asin gurih dan manis yang bikin nagih.',
+    image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=700&q=80',
+    tags: ['Keju Melimpah', 'Susu Manis', 'Gurih']
   },
   {
     id: 'm3',
@@ -34,9 +36,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 11000,
     isPopular: true,
-    description: 'Paling favorit warga perumahan! Manisnya cokelat lumer berpadu keju parut gurih asin.',
-    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80',
-    tags: ['Paling Laris', 'Cokelat Keju']
+    badge: '🔥 Paling Laris',
+    description: 'Menu legendaris paling dicari warga perumahan! Cokelat meses manis lumer bertemu keju cheddar parut tebal.',
+    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80',
+    tags: ['Best Seller #1', 'Cokelat & Keju', 'Renyah']
   },
   {
     id: 'm4',
@@ -44,9 +47,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 13000,
     isPopular: true,
-    description: 'Potongan pisang segar manis berpadu cokelat meses tebal dan taburan keju gurih.',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80',
-    tags: ['Pisang Segar', 'Cokelat Keju']
+    badge: 'Rekomendasi',
+    description: 'Irisan buah pisang manis alami dipadukan cokelat meses legit dan taburan keju gurih melimpah.',
+    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80',
+    tags: ['Pisang Asli', 'Cokelat Keju', 'Kenyang']
   },
   {
     id: 'm5',
@@ -54,9 +58,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 8000,
     isPopular: false,
-    description: 'Selai strawberry segar asam manis dipadukan susu kental manis dan kulit crepes renyah.',
-    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80',
-    tags: ['Strawberry', 'Manis Asam']
+    badge: 'Segar Manis',
+    description: 'Selai strawberry harum asam manis segar dengan siraman susu kental manis dalam balutan crepes garing.',
+    image: 'https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=700&q=80',
+    tags: ['Selai Strawberry', 'Manis Asam', 'Krispi']
   },
   {
     id: 'm6',
@@ -64,9 +69,10 @@ export const MENU_ITEMS = [
     category: 'manis',
     price: 10000,
     isPopular: false,
-    description: 'Remahan biskuit Oreo renyah dengan susu kental manis, cemilan kesukaan anak-anak.',
-    image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80',
-    tags: ['Oreo', 'Susu']
+    badge: 'Favorit Remaja',
+    description: 'Remahan biskuit Oreo hitam yang renyah dengan siraman kental manis gurih, cemilan manis teman nongkrong.',
+    image: 'https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=700&q=80',
+    tags: ['Biskuit Oreo', 'Susu Manis', 'Crunchy']
   },
 
   // GURIH
@@ -76,9 +82,10 @@ export const MENU_ITEMS = [
     category: 'gurih',
     price: 10000,
     isPopular: true,
-    description: 'Potongan sosis sapi lezat dibalut mayones gurih dan pilihan saus tomat atau pedas.',
-    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=600&q=80',
-    tags: ['Sosis Sapi', 'Mayo', 'Pedas/Tomat']
+    badge: 'Favorit Gurih',
+    description: 'Potongan sosis sapi gurih dibalut mayones lembut dan pilihan saus tomat atau saus sambal pedas nikmat.',
+    image: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?auto=format&fit=crop&w=700&q=80',
+    tags: ['Sosis Sapi', 'Mayo Gurih', 'Pedas/Tomat']
   },
   {
     id: 'm8',
@@ -86,9 +93,10 @@ export const MENU_ITEMS = [
     category: 'gurih',
     price: 12000,
     isPopular: true,
-    description: 'Sosis sapi dengan parutan keju gurih, saus cabai, dan mayo mantap untuk ganjel perut sore.',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
-    tags: ['Favorit Gurih', 'Sosis Keju']
+    badge: '🔥 Juara Gurih',
+    description: 'Sosis sapi dengan parutan keju cheddar gurih, saus cabai, dan mayo creamy. Mantap buat ganjel perut sore.',
+    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=700&q=80',
+    tags: ['Sosis & Keju', 'Mayo Creamy', 'Puas']
   },
   {
     id: 'm9',
@@ -96,21 +104,23 @@ export const MENU_ITEMS = [
     category: 'gurih',
     price: 14000,
     isPopular: false,
-    description: 'Irisan daging sapi asap gurih dengan aroma khas, diselimuti saus mayo lembut.',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
-    tags: ['Daging Asap', 'Mayo']
+    badge: 'Spesial Daging',
+    description: 'Irisan daging sapi asap gurih beraroma khas dipadu saus mayones lembut dan taburan bumbu rempah nikmat.',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=700&q=80',
+    tags: ['Daging Asap', 'Mayones', 'Aroma Asap']
   },
 
-  // PAKET CATERING ACARA (PKL & Catering)
+  // PAKET CATERING ACARA
   {
     id: 'm10',
-    name: 'Paket Catering Ulang Tahun Anak (Isi 25 Porsi)',
+    name: 'Paket Catering Ultah Anak (Isi 25 Porsi)',
     category: 'catering',
     price: 200000,
     isPopular: true,
-    description: 'Paket 25 porsi crepes manis campur (Cokelat Susu, Keju Susu, Oreo). Cocok untuk ultah anak atau pesta kecil.',
-    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80',
-    tags: ['Hemat 25 Porsi', 'Acara Ultah', 'Bisa Live Cooking']
+    badge: '🎉 Paket Pesta',
+    description: 'Paket 25 porsi crepes manis campur (Cokelat Susu, Keju Susu, Oreo). Cocok untuk ulang tahun anak atau syukuran.',
+    image: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=700&q=80',
+    tags: ['25 Porsi Hemat', 'Bisa Diantar / Live Cooking', 'Free Kemasan']
   },
   {
     id: 'm11',
@@ -118,48 +128,52 @@ export const MENU_ITEMS = [
     category: 'catering',
     price: 350000,
     isPopular: true,
-    description: 'Paket 40 porsi crepes kombinasi manis & sosis gurih. Praktis untuk konsumsi arisan warga atau kumpul RT/RW.',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
-    tags: ['Hemat 40 Porsi', 'Arisan & Rapat', 'Manis & Gurih']
+    badge: '🎉 Paket Rame-Rame',
+    description: 'Paket 40 porsi crepes kombinasi manis & sosis gurih. Sangat praktis untuk konsumsi arisan warga atau kumpul RT/RW.',
+    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=700&q=80',
+    tags: ['40 Porsi Campur', 'Manis & Gurih', 'Hemat Waktu']
   },
 
   // MINUMAN DINGIN
   {
     id: 'm12',
-    name: 'Es Teh Manis Jumbo',
+    name: 'Es Teh Manis Melati Jumbo',
     category: 'minuman',
     price: 4000,
     isPopular: true,
-    description: 'Es teh melati segar dingin porsi gelas jumbo, teman minum paling pas saat santai di taman.',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600&q=80',
-    tags: ['Es Teh Segar', 'Gelas Jumbo']
+    badge: 'Segar Banget',
+    description: 'Es teh melati tradisional porsi gelas jumbo dengan es kristal dingin, teman paling nikmat ngemil crepes hangat.',
+    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=700&q=80',
+    tags: ['Teh Melati', 'Gelas Jumbo', 'Segar Dingin']
   },
   {
     id: 'm13',
-    name: 'Es Jeruk Peras',
+    name: 'Es Jeruk Peras Segar',
     category: 'minuman',
     price: 5000,
     isPopular: false,
-    description: 'Perasan jeruk segar asli dengan gula pasir dan es batu dingin pelepas dahaga.',
-    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80',
-    tags: ['Jeruk Asli', 'Segar Dingin']
+    badge: 'Jeruk Asli',
+    description: 'Perasan jeruk segar asli dengan gula pasir murni dan es batu dingin pelepas dahaga sore hari.',
+    image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=700&q=80',
+    tags: ['Jeruk Peras', 'Asam Manis', 'Dingin']
   },
   {
     id: 'm14',
-    name: 'Air Mineral Dingin',
+    name: 'Air Mineral Botol Dingin',
     category: 'minuman',
     price: 3000,
     isPopular: false,
-    description: 'Air mineral botol 600ml dingin dari cooler lapak.',
-    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=600&q=80',
-    tags: ['Air Dingin']
+    badge: 'Praktis',
+    description: 'Air mineral botol 600ml dingin dari cooler lapak gerobak Mas Resi.',
+    image: 'https://images.unsplash.com/photo-1548839140-29a749e1bc4e?auto=format&fit=crop&w=700&q=80',
+    tags: ['Air Mineral', 'Dingin Segar']
   }
 ];
 
 export const TOPPINGS_EXTRA = [
-  { name: 'Extra Keju Parut', price: 2000 },
-  { name: 'Extra Cokelat Meses', price: 2000 },
-  { name: 'Extra Potongan Sosis', price: 3000 },
-  { name: 'Extra Irisan Pisang', price: 2000 },
-  { name: 'Extra Remah Oreo', price: 2000 }
+  { name: 'Extra Keju Parut Tebal', price: 2000, icon: '🧀' },
+  { name: 'Extra Cokelat Meses', price: 2000, icon: '🍫' },
+  { name: 'Extra Potongan Sosis Sapi', price: 3000, icon: '🌭' },
+  { name: 'Extra Irisan Pisang Manis', price: 2000, icon: '🍌' },
+  { name: 'Extra Remahan Biskuit Oreo', price: 2000, icon: '🍪' }
 ];

@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        brand: {
+        amber: {
           50: '#fffbeb',
           100: '#fef3c7',
           200: '#fde68a',
@@ -18,12 +18,13 @@ export default {
           700: '#b45309',
           800: '#92400e',
           900: '#78350f',
+          950: '#451a03',
         },
-        warm: {
-          50: '#fffbf5',
-          100: '#fff5e6',
-          900: '#26160c',
-          950: '#170c06',
+        warmcream: {
+          50: '#FFFDF9',
+          100: '#FFF9EE',
+          200: '#FFF2DB',
+          300: '#FFE6BF',
         }
       },
       fontFamily: {
@@ -31,8 +32,8 @@ export default {
         display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
       },
       boxShadow: {
-        'crisp': '0 10px 25px -5px rgba(217, 119, 6, 0.15), 0 8px 10px -6px rgba(217, 119, 6, 0.1)',
-        'soft-glow': '0 0 30px rgba(245, 158, 11, 0.25)',
+        'warm': '0 4px 20px -2px rgba(180, 83, 9, 0.08), 0 2px 6px -1px rgba(180, 83, 9, 0.04)',
+        'warm-hover': '0 12px 30px -4px rgba(180, 83, 9, 0.16), 0 4px 10px -2px rgba(180, 83, 9, 0.08)',
       }
     },
   },

@@ -2,48 +2,48 @@ import React from 'react';
 import { 
   Sparkles, 
   Heart, 
-  Flame, 
-  CalendarCheck 
+  BadgePercent, 
+  Clock 
 } from 'lucide-react';
 import { HIGHLIGHTS } from '../data/storeData';
 
 export default function Features() {
-  const iconList = [Sparkles, Heart, Flame, CalendarCheck];
+  const iconList = [Sparkles, Heart, BadgePercent, Clock];
 
   return (
-    <section id="keunggulan" className="py-12 sm:py-16 bg-white border-b border-stone-200/60">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6">
+    <section id="keunggulan" className="py-14 sm:py-18 bg-white border-b border-amber-100/70">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto space-y-1.5 mb-8">
-          <span className="text-amber-800 font-bold text-xs uppercase tracking-wider block">
+        <div className="text-center max-w-xl mx-auto space-y-2 mb-10">
+          <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
             Kualitas & Pengalaman
           </span>
-          <h2 className="text-2xl font-extrabold text-stone-950">
-            Kualitas Rasa & Harga Terjaga
+          <h2 className="text-2xl sm:text-3xl font-black text-stone-950">
+            Mengapa Crepes Cak Resz Selalu Jadi Pilihan?
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm">
-            Lebih dari satu dekade menjadi pilihan cemilan favorit keluarga dan warga sekitar Candi Sidoarjo.
+            Lebih dari satu dekade setia menjaga renyahnya tekstur dan kelezatan rasa untuk warga Candi Sidoarjo.
           </p>
         </div>
 
         {/* 4 Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {HIGHLIGHTS.map((item, idx) => {
             const Icon = iconList[idx] || Sparkles;
             return (
               <div 
                 key={idx}
-                className="bg-[#FAF9F5] p-4 rounded-xl border border-stone-200/80 flex flex-col justify-between"
+                className="bg-gradient-to-b from-[#FFFDF9] to-[#FFF9EE] p-5 sm:p-6 rounded-2xl border border-amber-200/80 hover:border-amber-400 hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-amber-800 mb-3 shadow-2xs">
-                    <Icon className="w-4 h-4" />
+                  <div className="w-11 h-11 rounded-2xl bg-amber-500/15 border border-amber-300/60 flex items-center justify-center text-amber-800 mb-4 group-hover:scale-110 transition-transform">
+                    <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="font-bold text-stone-900 text-sm">
+                  <h3 className="font-extrabold text-stone-900 text-base group-hover:text-amber-800 transition-colors">
                     {item.title}
                   </h3>
-                  <p className="text-stone-600 text-xs mt-1 leading-relaxed">
+                  <p className="text-stone-600 text-xs sm:text-sm mt-2 leading-relaxed font-normal">
                     {item.desc}
                   </p>
                 </div>
