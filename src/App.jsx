@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
+import CateringSection from './components/CateringSection';
 import MenuSection from './components/MenuSection';
 import LocationSection from './components/LocationSection';
 import GallerySection from './components/GallerySection';
@@ -24,6 +25,8 @@ export default function App() {
         <Hero />
         
         <Features />
+
+        <CateringSection />
         
         <MenuSection />
 
@@ -39,17 +42,17 @@ export default function App() {
       {/* Clean Footer */}
       <Footer />
 
-      {/* Direct Floating WhatsApp Contact Button */}
+      {/* Direct Floating WhatsApp Contact Button to Mas Resi */}
       <div className="fixed bottom-4 right-4 z-40">
         <a
-          href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Cak%20Resz,%20apakah%20gerobak%20crepes%20sedang%20buka?`}
+          href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20pesan%20crepes`}
           target="_blank"
           rel="noopener noreferrer"
           className="bg-emerald-700 hover:bg-emerald-800 text-white px-3.5 py-2.5 rounded-xl shadow-md flex items-center gap-2 text-xs font-bold transition-all"
-          title="Hubungi Cak Resz via WhatsApp"
+          title="Hubungi Mas Resi via WhatsApp"
         >
           <MessageCircle className="w-4 h-4" />
-          <span>Chat Cak Resz</span>
+          <span>Chat Mas Resi (WA)</span>
         </a>
       </div>
 

@@ -13,9 +13,9 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Menu & Harga', href: '#menu' },
-    { name: 'Lokasi Gerobak', href: '#lokasi' },
+    { name: 'Lokasi Taman', href: '#lokasi' },
+    { name: 'Layanan Catering', href: '#catering' },
     { name: 'Keunggulan', href: '#keunggulan' },
-    { name: 'Suasana', href: '#galeri' },
     { name: 'FAQ', href: '#faq' },
   ];
 
@@ -44,15 +44,15 @@ export default function Navbar() {
             onClick={(e) => handleNavClick(e, '#beranda')}
             className="flex items-center gap-2.5"
           >
-            <div className="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center text-lg font-bold shadow-sm">
+            <div className="w-9 h-9 rounded-xl bg-amber-600 text-white flex items-center justify-center text-lg font-bold shadow-xs">
               🥞
             </div>
             <div>
               <span className="font-display font-black text-lg tracking-tight text-stone-900 block leading-tight">
-                Crepes Cak Resz
+                {STORE_INFO.brandName}
               </span>
               <span className="text-[11px] text-stone-500 font-medium block">
-                Jajanan Gerobak Kaki Lima
+                PKL & Catering &bull; Sejak {STORE_INFO.since}
               </span>
             </div>
           </a>
@@ -71,16 +71,16 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Contact Cak Resz via WhatsApp */}
+          {/* Contact Mas Resi via WhatsApp */}
           <div className="flex items-center gap-2">
             <a
-              href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Cak%20Resz,%20apakah%20gerobak%20crepes%20sudah%20buka?`}
+              href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20tanya%20pesanan%20crepes`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-stone-900 hover:bg-stone-800 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-sm"
+              className="inline-flex items-center gap-1.5 bg-stone-900 hover:bg-stone-800 text-white px-3.5 py-2 rounded-xl text-xs font-bold transition-all shadow-xs"
             >
               <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Chat Cak Resz</span>
+              <span>WA: {STORE_INFO.phone}</span>
             </a>
 
             {/* Mobile Toggle */}
@@ -111,7 +111,7 @@ export default function Navbar() {
           ))}
           <div className="pt-2 text-[11px] text-stone-500 flex items-center gap-1.5">
             <Clock className="w-3.5 h-3.5 text-amber-700" />
-            <span>Mangkal sore: <strong>16.00 - 22.00 WIB</strong></span>
+            <span>Taman Perum Mutiara Citra Graha Bligo (16.00 - 21.30)</span>
           </div>
         </div>
       )}

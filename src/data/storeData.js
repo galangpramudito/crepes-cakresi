@@ -1,103 +1,117 @@
 export const STORE_INFO = {
   brandName: 'Crepes Cak Resz',
-  tagline: 'Jajanan Crepes Kaki Lima Renyah, Gurih & Ramah di Kantong',
-  vendorType: 'Gerobak Kuliner Kaki Lima',
-  since: '2021',
-  phone: '0812-3456-7890',
-  whatsappNumber: '6281234567890',
-  
-  // Single real kaki lima location
+  ownerName: 'Resi Hutomo',
+  tagline: 'Kualitas Rasa Terjaga & Harga Bersahabat Sejak 2013',
+  vendorType: 'PKL & Layanan Catering',
+  since: '2013',
+  yearsActive: '10+ Tahun',
+  phone: '0889-8905-5777',
+  whatsappNumber: '6288989055777',
+  targetMarket: 'Semua Umur (Anak-anak, Remaja, hingga Keluarga)',
+
   location: {
-    spotName: 'Lapak Gerobak Cak Resz',
-    street: 'Jl. Pandanaran No. 42 (Depan Alfamidi, samping Lapangan Voli)',
-    area: 'Area Kuliner Sore & Malam',
-    landmark: 'Tepat di pelataran parkir Alfamidi, dekat pohon rindang dengan tenda payung kuning',
-    hours: 'Setiap Hari: 16.00 - 22.00 WIB (atau sampai adonan habis)',
-    payment: 'Tunai (Uang Pas Sangat Membantu) & QRIS Gerobak',
-    mapUrl: 'https://maps.google.com/?q=Alfamidi+Pandanaran',
-    mapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15811.838914619734!2d110.409199!3d-7.789123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a577d206f7bb7%3A0x6b30f89d3c52a0a2!2sSentra%20Kuliner!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid',
-    parking: 'Parkir motor gratis & luas di pelataran minimarket'
+    spotName: 'Lapak Taman Perum Mutiara Citra Graha',
+    street: 'Taman Perum Mutiara Citra Graha, Desa Bligo',
+    district: 'Kec. Candi, Kabupaten Sidoarjo, Jawa Timur',
+    fullAddress: 'Area Taman Perum Mutiara Citra Graha, Desa Bligo, Kec. Candi, Kab. Sidoarjo',
+    landmark: 'Tepat di area ruang terbuka / taman Perumahan Mutiara Citra Graha Bligo',
+    hours: 'Setiap Hari: 16.00 - 21.30 WIB (Sore hingga malam)',
+    payment: 'Tunai & QRIS',
+    mapUrl: 'https://maps.google.com/?q=Perumahan+Mutiara+Citra+Graha+Bligo+Candi+Sidoarjo',
+    mapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15825.861777085732!2d112.710777!3d-7.472911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e108152c1cb7%3A0x7d6a5068285c5b9!2sMutiara%20Citra%20Graha!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid',
+    parking: 'Parkir motor & sepeda santai di tepi taman'
+  },
+
+  catering: {
+    title: 'Layanan Catering & Pesanan Acara',
+    desc: 'Melayani pesanan crepes untuk arisan warga, ulang tahun anak, rapat RT/RW, syukuran, dan event sekolah di sekitar Candi & Sidoarjo.',
+    minOrder: 'Mulai 20 porsi (Bisa live cooking di lokasi atau diantar siap santap)',
+    leadTime: 'Pesan H-1 atau H-2 via WhatsApp Mas Resi Hutomo'
   }
 };
 
 export const HIGHLIGHTS = [
   {
-    title: 'Kriuk & Renyah Maksimal',
-    desc: 'Kulit crepes garing keemasan, dipanggang merata di loyang putar dan tidak mudah melempem.'
+    title: 'Beroperasi Sejak 2013',
+    desc: 'Lebih dari 10 tahun konsisten melayani warga Candi Sidoarjo dengan resep yang sudah terbukti disukai pelanggan tetap.'
   },
   {
-    title: 'Topping Mantap & Nggak Pelit',
-    desc: 'Taburan keju melimpah, cokelat meses manis legit, dan pilihan sosis gurih yang pas di lidah.'
+    title: 'Kualitas Rasa Selalu Terjaga',
+    desc: 'Kulit crepes renyah garing, adonan wangi, dengan topping cokelat, keju, dan sosis yang pas di lidah.'
   },
   {
-    title: 'Harga Kaki Lima Mulai 7 Ribuan',
-    desc: 'Sangat ramah di kantong pelajar, anak kos, dan keluarga buat cemilan sore.'
+    title: 'Harga Murah Mulai 7 Ribuan',
+    desc: 'Harga bersahabat untuk semua umur, mulai dari anak-anak yang bermain di taman hingga orang tua yang mencari cemilan santai.'
   },
   {
-    title: 'Dibuat Dadakan Selalu Hangat',
-    desc: 'Selalu dimasak langsung begitu kamu pesan, disajikan hangat dengan aroma wangi semerbak.'
+    title: 'Bisa Beli di Taman & Pesan Catering',
+    desc: 'Bisa langsung jajan sore di taman perumahan atau pesan catering untuk acara arisan dan ulang tahun di rumah.'
   }
 ];
 
 export const TESTIMONIALS = [
   {
-    name: 'Bagus & Rina',
-    role: 'Pelanggan Sore / Anak Kos',
-    comment: 'Langganan tiap pulang kerja atau kuliah. Crepes cokelat kejunya Cak Resz emang juara kriuknya, harganya murah banget dan Cak Resz-nya ramah!',
-    menuFavorit: 'Choco Cheese Klasik'
+    name: 'Ibu Maya Lestari',
+    role: 'Warga Blok B, Perum Mutiara Citra Graha',
+    comment: 'Langganan dari jaman anak saya masih SD sampai sekarang udah SMA. Rasa crepesnya Mas Resi gak pernah berubah, tetep enak renyah dan harganya ramah banget di kantong.',
+    menuFavorit: 'Choco Cheese Spesial'
   },
   {
-    name: 'Pak RT Hendro',
-    role: 'Warga Sekitar',
-    comment: 'Anak-anak di rumah selalu minta dibelikan crepes sosis saus mayo pas sore. Tempatnya bersih dan porsinya pas buat ganjel perut.',
-    menuFavorit: 'Sosis Sapi Mayo'
+    name: 'Mas Aditya',
+    role: 'Warga Desa Bligo, Candi',
+    comment: 'Cemilan wajib kalau sore lagi santai di taman perumahan. Sosis keju mayonya gurih mantap. Mas Resi orangnya juga ramah dan cepet bikinnya.',
+    menuFavorit: 'Sosis Keju Mayo'
   },
   {
-    name: 'Dinda',
-    role: 'Pelajar SMA',
-    comment: 'Biasanya mampir pas jam 5 sore. Kalau antre panjang kadang saya WA dulu biar pas sampai gerobak udah hampir matang.',
-    menuFavorit: 'Pisang Cokelat Keju'
+    name: 'Mbak Dewi Anggraini',
+    role: 'Pelanggan Catering Ultah Anak',
+    comment: 'Kemarin pesan 40 porsi crepes buat acara ulang tahun anak di rumah. Praktis banget, anak-anak suka pada rebutan karena masih hangat dan krispi.',
+    menuFavorit: 'Paket Catering Manis Campur'
   }
 ];
 
 export const FAQS = [
   {
-    question: 'Buka jam berapa dan sampai jam berapa?',
-    answer: 'Gerobak Cak Resz mangkal setiap hari mulai pukul 16.00 WIB (jam 4 sore) sampai pukul 22.00 WIB malam, atau sampai adonan hari itu habis.'
+    question: 'Di mana lokasi mangkal Crepes Cak Resz?',
+    answer: 'Kami mangkal di area Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kec. Candi, Kabupaten Sidoarjo. Lokasinya sangat mudah ditemukan saat sore hari di area taman.'
   },
   {
-    question: 'Kalau hujan apakah gerobak tetap buka?',
-    answer: 'Tetap buka! Lapak gerobak kami dilengkapi tenda pelindung dan terletak di pelataran beratap, jadi pembeli tetap aman dari hujan saat menunggu pesanan.'
+    question: 'Jam berapa lapak mulai buka?',
+    answer: 'Buka setiap hari mulai pukul 16.00 WIB (jam 4 sore) sampai sekitar pukul 21.30 WIB malam, atau sampai adonan harian habis.'
   },
   {
-    question: 'Bisa chat WhatsApp dulu sebelum datang supaya tidak antre?',
-    answer: 'Bisa sekali! Anda bisa kirim chat WA ke Cak Resz untuk pesan menu dan mengabari perkiraan waktu tiba, jadi pesanan bisa langsung disiapkan tanpa perlu lama menunggu.'
+    question: 'Bagaimana cara pesan untuk acara arisan atau ulang tahun (catering)?',
+    answer: 'Sangat mudah! Cukup hubungi Mas Resi Hutomo langsung lewat WhatsApp di nomor 0889-8905-5777 minimal H-1 atau H-2 sebelum acara. Kami bisa antar ke lokasi atau buatkan langsung di tempat acara.'
   },
   {
-    question: 'Pembayaran bisa pakai apa saja?',
-    answer: 'Kami menerima pembayaran tunai (cash) dan sudah tersedia barcode QRIS di gerobak yang bisa discan pakai GoPay, OVO, Dana, BCA, atau mobile banking apa saja.'
+    question: 'Bisa titip pesan via WhatsApp sebelum datang ke taman?',
+    answer: 'Bisa sekali! Jika tidak ingin lama mengantre di taman, Anda bisa kirim chat WA terlebih dahulu. Saat Anda sampai di taman perumahan, crepes sudah siap diambil.'
+  },
+  {
+    question: 'Metode pembayaran apa saja yang diterima di lapak?',
+    answer: 'Kami menerima pembayaran tunai (cash) serta pembayaran non-tunai lewat scan barcode QRIS yang sudah tersedia di gerobak.'
   }
 ];
 
 export const GALLERY = [
   {
     url: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=600&q=80',
-    title: 'Dipanggang Hangat di Loyang Gerobak',
-    desc: 'Kulit garing keemasan'
+    title: 'Dipanggang Hangat di Lapak Taman',
+    desc: 'Adonan garing keemasan'
   },
   {
     url: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=600&q=80',
-    title: 'Kemasan Kertas Corong Klasik',
-    desc: 'Praktis dinikmati sambil jalan'
+    title: 'Crepes Renyah Kemasan Corong',
+    desc: 'Praktis dinikmati di taman'
   },
   {
     url: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80',
-    title: 'Crepes Gurih Sosis & Keju Meleleh',
-    desc: 'Cemilan asin favorit sore hari'
+    title: 'Topping Sosis & Keju Gurih',
+    desc: 'Favorit cemilan sore'
   },
   {
     url: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80',
-    title: 'Taburan Keju & Susu Kental Manis',
-    desc: 'Topping melimpah'
+    title: 'Parutan Keju & Cokelat Meses',
+    desc: 'Manis gurih berlimpah'
   }
 ];

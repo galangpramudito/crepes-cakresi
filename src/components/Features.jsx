@@ -3,12 +3,12 @@ import {
   Sparkles, 
   Heart, 
   Flame, 
-  BadgePercent 
+  CalendarCheck 
 } from 'lucide-react';
 import { HIGHLIGHTS } from '../data/storeData';
 
 export default function Features() {
-  const iconList = [Sparkles, Heart, BadgePercent, Flame];
+  const iconList = [Sparkles, Heart, Flame, CalendarCheck];
 
   return (
     <section id="keunggulan" className="py-12 sm:py-16 bg-white border-b border-stone-200/60">
@@ -17,13 +17,13 @@ export default function Features() {
         {/* Section Header */}
         <div className="text-center max-w-xl mx-auto space-y-1.5 mb-8">
           <span className="text-amber-800 font-bold text-xs uppercase tracking-wider block">
-            Jajanan Kaki Lima Pilihan
+            Kualitas & Pengalaman
           </span>
           <h2 className="text-2xl font-extrabold text-stone-950">
-            Kenapa Mampir ke Gerobak Cak Resz?
+            Kualitas Rasa & Harga Terjaga
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm">
-            Rasa enak, porsi pas, dan harga ramah di kantong untuk santap sore.
+            Lebih dari satu dekade menjadi pilihan cemilan favorit keluarga dan warga sekitar Candi Sidoarjo.
           </p>
         </div>
 
@@ -37,7 +37,7 @@ export default function Features() {
                 className="bg-[#FAF9F5] p-4 rounded-xl border border-stone-200/80 flex flex-col justify-between"
               >
                 <div>
-                  <div className="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-amber-800 mb-3 shadow-xs">
+                  <div className="w-8 h-8 rounded-lg bg-white border border-stone-200 flex items-center justify-center text-amber-800 mb-3 shadow-2xs">
                     <Icon className="w-4 h-4" />
                   </div>
                   <h3 className="font-bold text-stone-900 text-sm">
