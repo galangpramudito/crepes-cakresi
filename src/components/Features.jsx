@@ -15,15 +15,15 @@ export default function Features() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-xl mx-auto space-y-2 mb-10">
-          <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3 py-1 rounded-full">
-            Kualitas & Pengalaman
+        <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
+          <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
+            Kualitas & Pengalaman Sejak 2013
           </span>
           <h2 className="text-2xl sm:text-3xl font-black text-stone-950">
-            Mengapa Crepes Cak Resz Selalu Jadi Pilihan?
+            Alasan Menjadi Pilihan Crepes Terbaik di Sidoarjo
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm">
-            Lebih dari satu dekade setia menjaga renyahnya tekstur dan kelezatan rasa untuk warga Candi Sidoarjo.
+            Menjaga kualitas rasa <strong>crepes enak Sidoarjo</strong> khas Mas Resi Hutomo selama lebih dari 10 tahun untuk seluruh pelanggan di Candi dan sekitarnya.
           </p>
         </div>
 

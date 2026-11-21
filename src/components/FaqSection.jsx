@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, HelpCircle } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 import { FAQS } from '../data/storeData';
 
 export default function FaqSection() {
@@ -8,6 +8,29 @@ export default function FaqSection() {
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+
+  const seoFaqs = [
+    {
+      question: 'Di mana lokasi crepes terdekat di area Desa Bligo Candi Sidoarjo?',
+      answer: 'Lapak Crepes Cak Resz (Mas Resi Hutomo) berlokasi tepat di area Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kecamatan Candi, Kabupaten Sidoarjo. Sangat mudah dijangkau bagi Anda yang mencari crepes terdekat di wilayah Candi, Tanggulangin, dan sekitarnya. Buka setiap sore pukul 16.00 hingga 21.30 WIB.'
+    },
+    {
+      question: 'Kenapa Crepes Cak Resz disebut salah satu crepes enak dan terbaik di Sidoarjo?',
+      answer: 'Karena Mas Resi Hutomo sudah konsisten berjualan sejak tahun 2013 (lebih dari 10 tahun). Menggunakan bahan berkualitas halal, adonan dipanggang dadakan langsung di loyang putar sehingga menghasilkan kerenyahan keemasan yang tahan lama, topping melimpah, dan harga merakyat mulai Rp 7.000.'
+    },
+    {
+      question: 'Bagaimana cara pesan crepes untuk catering acara di Sidoarjo?',
+      answer: 'Anda bisa langsung menghubungi Mas Resi Hutomo via WhatsApp di nomor 0889-8905-5777 minimal H-1 atau H-2 sebelum acara. Kami melayani catering crepes untuk ulang tahun anak, arisan RT/RW, dan rapat warga di area Candi dan Sidoarjo dengan paket hemat mulai dari 20 porsi.'
+    },
+    {
+      question: 'Bisa pesan via WhatsApp dulu sebelum mampir ke lapak taman?',
+      answer: 'Bisa sekali! Anda bisa chat WA terlebih dahulu untuk titip pesanan, jadi saat Anda tiba di taman perumahan crepes sudah siap diambil tanpa perlu lama mengantre.'
+    },
+    {
+      question: 'Metode pembayaran apa saja yang diterima di lapak gerobak?',
+      answer: 'Kami menerima uang tunai (cash) serta pembayaran non-tunai lewat scan barcode QRIS yang sudah tersedia di gerobak.'
+    }
+  ];
 
   return (
     <section id="faq" className="py-14 sm:py-20 bg-warmcream-50 border-b border-amber-100/70 relative">
@@ -22,13 +45,13 @@ export default function FaqSection() {
             Pertanyaan yang Sering Diajukan
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm">
-            Informasi praktis seputar lapak mangkal, pesanan catering, dan jam buka.
+            Informasi lengkap seputar <strong>crepes terdekat</strong> di Bligo, menu favorit, dan layanan <strong>crepes catering Sidoarjo</strong>.
           </p>
         </div>
 
         {/* FAQ Accordions */}
         <div className="space-y-3">
-          {FAQS.map((faq, idx) => {
+          {seoFaqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div

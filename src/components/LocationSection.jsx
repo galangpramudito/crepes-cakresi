@@ -7,8 +7,7 @@ import {
   ExternalLink, 
   Wallet, 
   Car,
-  Store,
-  Sparkles
+  Compass
 } from 'lucide-react';
 import { STORE_INFO } from '../data/storeData';
 
@@ -19,16 +18,16 @@ export default function LocationSection() {
     <section id="lokasi" className="py-14 sm:py-20 bg-white border-b border-amber-100/70 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         
-        {/* Section Header */}
+        {/* Section Header with Local Keywords */}
         <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
           <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
-            Lokasi Mangkal Gerobak
+            📍 Titik Lapak Crepes Terdekat
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-stone-950 tracking-tight">
-            Kunjungi Lapak Taman Cak Resz
+            Lokasi Crepes Bligo Sidoarjo & Jam Mangkal
           </h2>
           <p className="text-stone-600 text-xs sm:text-sm">
-            Tempat strategis di area taman perumahan yang asri dan sejuk, pas untuk jajan sore sambil nongkrong santai.
+            Bagi Anda warga Desa Bligo, Candi, dan sekitarnya yang mencari <strong>crepes terdekat</strong> dengan rasa enak dan harga ramah kantong, silakan langsung kunjungi gerobak kami.
           </p>
         </div>
 
@@ -40,7 +39,7 @@ export default function LocationSection() {
             <div className="lg:col-span-6 space-y-5">
               <div>
                 <span className="bg-amber-600 text-white font-extrabold text-[11px] px-3 py-1 rounded-full uppercase tracking-wider">
-                  Lapak Gerobak Kaki Lima
+                  Lapak Gerobak PKL
                 </span>
                 <h3 className="text-xl sm:text-2xl font-black text-stone-950 mt-2">
                   {loc.spotName}
@@ -50,7 +49,7 @@ export default function LocationSection() {
               {/* Street Address */}
               <div className="bg-white p-4 rounded-2xl border border-amber-200/70 shadow-2xs space-y-1">
                 <span className="text-xs font-extrabold text-amber-900 uppercase tracking-wider block">
-                  Alamat & Patokan
+                  Alamat Lengkap & Patokan
                 </span>
                 <div className="flex items-start gap-2.5 text-stone-700 text-xs sm:text-sm leading-relaxed">
                   <MapPin className="w-5 h-5 text-amber-700 shrink-0 mt-0.5" />
@@ -114,7 +113,7 @@ export default function LocationSection() {
 
             </div>
 
-            {/* Right Map Embed */}
+            {/* Right Map Embed with Optimized Title */}
             <div className="lg:col-span-6 w-full">
               <div className="w-full h-64 sm:h-80 lg:h-96 rounded-2xl overflow-hidden border-2 border-amber-300/80 shadow-md bg-stone-100 relative">
                 <iframe
@@ -125,13 +124,13 @@ export default function LocationSection() {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Peta Lokasi Taman Perum Mutiara Citra Graha Bligo Candi Sidoarjo"
+                  title="Peta Lokasi Crepes Bligo Sidoarjo - Taman Perumahan Mutiara Citra Graha Candi"
                   className="w-full h-full"
                 />
                 
                 {/* Floating Map Label */}
                 <div className="absolute bottom-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1.5 rounded-xl border border-amber-200 text-xs font-bold text-stone-900 shadow">
-                  📍 Area Taman Perum Mutiara Citra Graha
+                  📍 Titik Mangkal Crepes Terdekat di Desa Bligo Sidoarjo
                 </div>
               </div>
               <p className="text-[11px] text-stone-500 mt-2 text-center lg:text-left">
