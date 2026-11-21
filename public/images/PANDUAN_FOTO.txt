@@ -1,0 +1,38 @@
+PANDUAN MEMASUKKAN FOTO/GAMBAR KE DALAM WEBSITE
+=====================================================
+
+1. LOKASI FOLDER:
+   Masukkan semua foto (JPG, PNG, atau WebP) ke dalam folder ini:
+   -> crewebs/public/images/
+
+2. CONTOH PENAMAAN FILE:
+   - hero-crepes.jpg       (Foto utama panggangan crepes di banner paling atas)
+   - choco-cheese.jpg      (Foto crepes cokelat keju)
+   - keju-susu.jpg         (Foto crepes keju susu)
+   - sosis-mayo.jpg        (Foto crepes sosis mayo)
+   - pisang-cokelat.jpg    (Foto crepes pisang cokelat)
+   - es-teh-jumbo.jpg      (Foto es teh manis)
+   - lapak-taman.jpg       (Foto gerobak Mas Resi di Taman Mutiara Citra Graha)
+
+3. CARA MENGGUNAKANNYA DI KODE:
+   Buka file:
+   - crewebs/src/data/menuData.js   (Untuk mengganti foto menu makanan/minuman)
+   - crewebs/src/data/storeData.js  (Untuk mengganti foto galeri suasana)
+
+   Cukup ubah baris `image:` atau `url:` menjadi:
+   image: '/images/choco-cheese.jpg'
+
+   Contoh di menuData.js:
+   -------------------------------------------------
+   {
+     id: 'm1',
+     name: 'Choco Cheese Spesial',
+     price: 11000,
+     image: '/images/choco-cheese.jpg',  <-- CUKUP TULIS INI
+     ...
+   }
+   -------------------------------------------------
+
+4. TIPS:
+   - Gunakan format .webp atau .jpg dengan ukuran di bawah 300KB agar website loading secepat kilat.
+   - Rasio foto 16:9 atau 4:3 paling pas di tampilan kartu menu.
