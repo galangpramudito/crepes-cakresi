@@ -67,8 +67,8 @@ export default function MenuSection() {
                 <div
                   key={tier.id}
                   className={`rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-2 ${isFeatured
-                      ? 'bg-choco-950 text-white border-caramel-500 shadow-xl'
-                      : 'bg-white text-choco-900 border-choco-200/80 shadow-xs'
+                    ? 'bg-choco-950 text-white border-caramel-500 shadow-xl'
+                    : 'bg-white text-choco-900 border-choco-200/80 shadow-xs'
                     }`}
                 >
                   <div className="space-y-1.5 max-w-sm">
@@ -94,7 +94,7 @@ export default function MenuSection() {
 
                     {/* Small preview of combos */}
                     <p className={`text-[11px] font-semibold ${isFeatured ? 'text-choco-400' : 'text-choco-500'} pt-0.5`}>
-                      Favorit: {tier.combos.slice(0, 3).map((c) => c.join('+')).join(' &bull; ')}
+                      Favorit: {tier.combos.slice(0, 3).map((c) => c.join(' + ')).join(' · ')}
                     </p>
                   </div>
 
@@ -103,8 +103,8 @@ export default function MenuSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`shrink-0 inline-flex items-center justify-center gap-1.5 font-display text-xs font-black uppercase tracking-wider py-3 px-5 rounded-xl transition-all ${isFeatured
-                        ? 'bg-caramel-500 hover:bg-caramel-400 text-choco-950'
-                        : 'bg-choco-950 hover:bg-choco-900 text-white'
+                      ? 'bg-caramel-500 hover:bg-caramel-400 text-choco-950'
+                      : 'bg-choco-950 hover:bg-choco-900 text-white'
                       }`}
                   >
                     <span>Pesan {tier.title}</span>

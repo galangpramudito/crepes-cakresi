@@ -26,7 +26,7 @@ export default function FaqSection() {
           </p>
         </div>
 
-        {/* Clean Accordion List (Zero SVG) */}
+        {/* Clean Accordion List */}
         <div className="max-w-3xl space-y-3">
           {FAQS.map((faq, i) => {
             const isOpen = openIndex === i;
@@ -34,23 +34,49 @@ export default function FaqSection() {
             return (
               <div
                 key={i}
-                className="rounded-2xl bg-white border border-choco-200/80 overflow-hidden shadow-xs transition-colors"
+                className={`rounded-2xl bg-white border transition-all duration-200 overflow-hidden shadow-xs ${
+                  isOpen ? 'border-caramel-400 ring-2 ring-caramel-200/50' : 'border-choco-200/80 hover:border-choco-300'
+                }`}
               >
                 <button
                   type="button"
-                  onClick={() => toggle(i)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-display text-base sm:text-lg font-black uppercase tracking-tight text-choco-900 hover:text-caramel-700 transition-colors focus:outline-none"
+                  id={`faq-btn-${i}`}
                   aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
+                  onClick={() => toggle(i)}
+                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 font-display text-base sm:text-lg font-black uppercase tracking-tight text-choco-900 hover:text-caramel-700 transition-colors focus:outline-none cursor-pointer"
                 >
-                  <span>{faq.question}</span>
-                  <span className="shrink-0 font-mono text-xl font-black text-caramel-600">
-                    {isOpen ? '&minus;' : '+'}
+                  <span className="pr-2">{faq.question}</span>
+                  <span
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-lg leading-none transition-all duration-200 ${
+                      isOpen
+                        ? 'bg-caramel-600 text-white shadow-xs'
+                        : 'bg-caramel-100 text-caramel-800'
+                    }`}
+                    aria-hidden="true"
+                  >
+                    {isOpen ? '−' : '+'}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-6 pt-1 text-sm sm:text-base text-choco-600 leading-relaxed border-t border-choco-100">
-                    {faq.answer}
+                  <div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    aria-labelledby={`faq-btn-${i}`}
+                    className="px-5 sm:px-6 pb-6 pt-1 text-sm sm:text-base text-choco-600 leading-relaxed border-t border-choco-100 bg-cream-50/40"
+                  >
+                    <p>{faq.answer}</p>
+                    <div className="mt-4 pt-3 border-t border-choco-100 flex justify-end">
+                      <button
+                        type="button"
+                        onClick={() => toggle(i)}
+                        className="text-xs font-bold text-caramel-700 hover:text-caramel-900 uppercase tracking-wider py-1 px-3 rounded-lg bg-caramel-100/70 hover:bg-caramel-100 transition-colors inline-flex items-center gap-1 cursor-pointer"
+                      >
+                        <span>Tutup Pertanyaan</span>
+                        <span aria-hidden="true">&uarr;</span>
+                      </button>
+                    </div>
                   </div>
                 )}
               </div>
