@@ -30,7 +30,7 @@ export default function Footer() {
             </div>
 
             <p className="text-sm text-choco-300 leading-relaxed max-w-sm font-normal">
-              Crepes renyah racikan <strong>{STORE_INFO.ownerName}</strong> di Taman Perumahan Mutiara Citra Graha, Desa Bligo, Candi &mdash; Sidoarjo. Melayani pesanan lapak harian dan catering acara hajatan.
+              Pilihan crepes terdekat, renyah, enak, dan terbaik racikan <strong>{STORE_INFO.ownerName}</strong> di Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kecamatan Candi, Sidoarjo. Melayani lapak PKL harian dan catering live cooking acara.
             </p>
 
             <div className="pt-1">

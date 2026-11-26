@@ -9,13 +9,13 @@ export default function GallerySection() {
         {/* Section Header */}
         <div className="max-w-2xl space-y-3">
           <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-700 bg-caramel-100 px-3 py-1 rounded-md border border-caramel-200">
-            Dokumentasi & Cerita Lapak
+            Dokumentasi &amp; Cerita Lapak
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-choco-950">
-            Dari Taman Bligo Sejak 2013.
+            Crepes Terbaik Bligo Sidoarjo Sejak 2013.
           </h2>
           <p className="text-base sm:text-lg text-choco-600 leading-relaxed font-normal">
-            Bukan franchise mall atau resep instan. Ini jajanan kaki lima otentik racikan <strong>{STORE_INFO.ownerName}</strong> yang setia menemani sore warga Candi selama lebih dari satu dekade.
+            Bukan franchise mall atau resep instan. Ini jajanan crepes kaki lima otentik racikan <strong>{STORE_INFO.ownerName}</strong> yang setia menjadi favorit warga Bligo, Candi, dan Sidoarjo selama lebih dari satu dekade.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export default function GallerySection() {
             >
               <img
                 src={img.url}
-                alt={img.title}
+                alt={img.alt || img.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />

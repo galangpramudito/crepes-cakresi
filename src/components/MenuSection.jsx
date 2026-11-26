@@ -10,14 +10,14 @@ export default function MenuSection() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-3">
           <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-700 bg-caramel-100 px-3 py-1 rounded-md border border-caramel-200">
-            Daftar Menu & Harga Papan Gerobak
+            Menu &amp; Harga Crepes Enak Sidoarjo
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-choco-950">
             Pilih Berapa Rasa, <br className="hidden sm:inline" />
             Campur Sesuka Hati.
           </h2>
           <p className="text-base sm:text-lg text-choco-600 leading-relaxed max-w-2xl font-normal">
-            Harga jujur langsung dari gerobak Mas Resi di Taman Mutiara Citra Graha Bligo. Mau satu rasa santai, dua rasa klasik, atau tiga rasa melimpah.
+            Harga jujur langsung dari gerobak Crepes Cak Resi di Desa Bligo, Candi, Sidoarjo. Pilih crepes crispy (kue leker renyah) satu rasa santai, dua rasa klasik, atau tiga rasa melimpah.
           </p>
         </div>
 
@@ -29,7 +29,7 @@ export default function MenuSection() {
             <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-choco-900">
               <img
                 src={STORE_INFO.images.menuPhoto}
-                alt="Foto asli papan menu di gerobak Crepes Cak Resi bersama Mas Resi Hutomo"
+                alt="Foto asli papan menu dan harga Crepes Cak Resi enak dan murah di Bligo Candi Sidoarjo"
                 className="w-full h-full object-cover object-[center_35%] hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />
@@ -167,9 +167,9 @@ export default function MenuSection() {
             <span className="text-xs font-black tracking-widest uppercase text-caramel-200 bg-black/20 px-3 py-1 rounded-md inline-block">
               Tradisi Baik di Papan Gerobak
             </span>
-            <h4 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white pt-1">
+            <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white pt-1">
               Anak Yatim Atau Piatu: GRATIS
-            </h4>
+            </h3>
             <p className="text-sm sm:text-base text-caramel-100/90 leading-relaxed font-normal">
               Bagi adik-adik yatim atau piatu, silakan langsung datang ke lapak gerobak Mas Resi di Taman Mutiara Citra Graha. Nikmati crepes hangat renyah tanpa biaya.
             </p>

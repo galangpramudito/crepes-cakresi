@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://crepescakresi.com/</loc>
     <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://crepescakresi.com/#menu</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://crepescakresi.com/#lokasi</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://crepescakresi.com/#catering</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://crepescakresi.com/#faq</loc>
-    <lastmod>2026-11-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://crepescakresi.com/images/hero-mas-resi.jpg</image:loc>
+      <image:title>Crepes Cak Resi - Mas Resi Hutomo Bligo Sidoarjo</image:title>
+      <image:caption>Mas Resi Hutomo pemilik Crepes Cak Resi, jajanan crepes terdekat enak dan terbaik di Bligo Candi Sidoarjo sejak 2013</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crepescakresi.com/images/hero-lapak-taman.jpg</image:loc>
+      <image:title>Lapak Crepes Terdekat di Taman Mutiara Citra Graha Bligo Candi Sidoarjo</image:title>
+      <image:caption>Suasana sore lapak gerobak Crepes Cak Resi di Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kecamatan Candi, Sidoarjo</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crepescakresi.com/images/menu-gerobak-asli.jpg</image:loc>
+      <image:title>Daftar Menu &amp; Harga Crepes Cak Resi Sidoarjo Mulai Rp 3.000</image:title>
+      <image:caption>Papan daftar harga Crepes Cak Resi 1 rasa Rp 3.000, 2 rasa Rp 5.000, 3 rasa Rp 7.000 dan gratis anak yatim piatu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://crepescakresi.com/images/live-cooking.jpg</image:loc>
+      <image:title>Catering Live Cooking Crepes Cak Resi di Sidoarjo</image:title>
+      <image:caption>Layanan catering crepes live cooking Mas Resi Hutomo untuk acara ulang tahun, arisan, rapat, dan resepsi di Sidoarjo</image:caption>
+    </image:image>
   </url>
 </urlset>

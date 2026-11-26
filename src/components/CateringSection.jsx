@@ -14,13 +14,13 @@ export default function CateringSection() {
         {/* Section Header */}
         <div className="max-w-2xl space-y-3">
           <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-300 bg-white/10 border border-white/15 px-3 py-1 rounded-md">
-            Layanan Catering & Live Cooking
+            Catering Crepes Sidoarjo &amp; Live Cooking
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
             Hadirkan Panggangan Crepes di Acara Kamu.
           </h2>
           <p className="text-base sm:text-lg text-choco-200 leading-relaxed font-normal">
-            Bukan sekadar diantar dalam kotak &mdash; Mas Resi siap bawa kompor loyang putar dan masak langsung (<em>live cooking</em>) di lokasi acara di seluruh Sidoarjo & Candi.
+            Cari catering crepes terbaik di Sidoarjo? Mas Resi siap bawa kompor loyang putar dan masak langsung (<em>live cooking</em>) untuk ulang tahun anak, arisan RT/RW, hingga resepsi di seluruh Candi &amp; Sidoarjo.
           </p>
         </div>
 
@@ -32,7 +32,7 @@ export default function CateringSection() {
             <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl aspect-[4/5] bg-choco-900">
               <img
                 src={STORE_INFO.images.catering}
-                alt="Mas Resi melayani live cooking crepes di acara pernikahan Sidoarjo"
+                alt="Mas Resi melayani catering live cooking crepes enak dan terbaik di acara resepsi Sidoarjo"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
               />

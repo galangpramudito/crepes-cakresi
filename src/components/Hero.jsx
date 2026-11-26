@@ -13,7 +13,7 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         <img
           src={STORE_INFO.images.hero}
-          alt="Mas Resi Hutomo sedang melayani pembeli di lapak gerobak Taman Mutiara Citra Graha Bligo"
+          alt="Crepes Cak Resi Mas Resi Hutomo melayani pembeli di lapak crepes terdekat Taman Mutiara Citra Graha Desa Bligo Candi Sidoarjo"
           fetchPriority="high"
           className="w-full h-full object-cover object-[55%_65%] filter brightness-[0.95] contrast-[1.08]"
         />
@@ -41,16 +41,21 @@ export default function Hero() {
           </div>
 
           {/* Heavyweight Editorial Headline */}
-          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase text-white">
-            Crepes Renyah, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-caramel-300 via-caramel-400 to-caramel-200">
-              Topping Gak Pelit.
+          <h1 className="space-y-2.5">
+            <span className="block font-display text-xs sm:text-sm font-black tracking-widest uppercase text-caramel-300">
+              Crepes Cak Resi &bull; Crepes Terdekat, Enak &amp; Terbaik Sidoarjo
+            </span>
+            <span className="block font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase text-white">
+              Crepes Renyah, <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-caramel-300 via-caramel-400 to-caramel-200">
+                Topping Gak Pelit.
+              </span>
             </span>
           </h1>
 
           {/* Direct, Honest Street Food Description */}
           <p className="text-base sm:text-lg text-choco-100/90 leading-relaxed max-w-xl font-normal">
-            Racikan asli <strong>Mas Resi Hutomo</strong> langsung di atas loyang putar panas. Jajanan sore favorit warga Taman Mutiara Citra Graha Candi sejak 2013. Renyah keemasan, dimasak dadakan mulai <strong className="text-white underline decoration-caramel-400 decoration-2 underline-offset-4">Rp 3.000</strong>.
+            Racikan asli <strong>Mas Resi Hutomo</strong> langsung di atas loyang putar panas. Rekomendasi crepes enak dan terbaik di <strong>Desa Bligo, Kecamatan Candi, Sidoarjo</strong> sejak 2013. Mangkal di Taman Perum Mutiara Citra Graha mulai <strong className="text-white underline decoration-caramel-400 decoration-2 underline-offset-4">Rp 3.000</strong>.
           </p>
 
           {/* Action Row (Zero SVG) */}

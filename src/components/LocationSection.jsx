@@ -13,13 +13,13 @@ export default function LocationSection() {
         {/* Section Header */}
         <div className="max-w-2xl space-y-3">
           <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-700 bg-caramel-100 px-3 py-1 rounded-md border border-caramel-200">
-            Lokasi Mangkal & Jam Buka
+            Lokasi Crepes Terdekat &amp; Jam Buka
           </div>
           <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-choco-950">
-            Titik Mangkal Taman Mutiara Citra Graha.
+            Titik Mangkal Taman Bligo, Candi, Sidoarjo.
           </h2>
           <p className="text-base sm:text-lg text-choco-600 leading-relaxed font-normal">
-            Cari crepes terdekat di Candi atau Desa Bligo? Gerobak Mas Resi mangkal setiap sore di pelataran taman perumahan.
+            Cari crepes terdekat di Bligo, Candi, atau sekitar Sidoarjo kota? Gerobak Crepes Cak Resi mangkal setiap sore di pelataran Taman Perumahan Mutiara Citra Graha.
           </p>
         </div>
 
@@ -67,6 +67,24 @@ export default function LocationSection() {
                 <span className="block text-xs font-black uppercase tracking-wider text-caramel-700">Parkir:</span>
                 <p className="text-choco-700 pt-0.5">{loc.parking}</p>
               </div>
+
+              {loc.nearbyAreas && (
+                <div>
+                  <span className="block text-xs font-black uppercase tracking-wider text-caramel-700 mb-1.5">
+                    Dekat Dari Wilayah:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {loc.nearbyAreas.map((area) => (
+                      <span
+                        key={area}
+                        className="text-[11px] font-semibold text-choco-700 bg-cream-100 border border-choco-200/70 px-2.5 py-1 rounded-full"
+                      >
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Action Buttons (Zero SVG) */}
