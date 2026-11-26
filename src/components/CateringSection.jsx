@@ -1,108 +1,130 @@
-import React from 'react';
-import { MessageCircle, Check, PartyPopper, Calendar, PhoneCall } from 'lucide-react';
 import { STORE_INFO } from '../data/storeData';
+import { CATERING_PACKAGES } from '../data/menuData';
+import { formatRupiah, waLink } from '../lib/utils';
 
 export default function CateringSection() {
-  const c = STORE_INFO.catering;
-  const waCateringUrl = `https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20tanya%20paket%20catering%20crepes%20untuk%20acara%20saya%20di%20Sidoarjo`;
-
   return (
-    <section id="catering" className="py-14 sm:py-20 bg-gradient-to-b from-amber-50/70 via-amber-50/40 to-white border-b border-amber-100/70">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        {/* Container with Warm Frame */}
-        <div className="bg-white rounded-3xl border-2 border-amber-200/80 p-6 sm:p-10 shadow-lg shadow-amber-900/5 relative overflow-hidden">
-          
-          {/* Subtle Decorative Backdrop */}
-          <div className="absolute -top-16 -right-16 w-64 h-64 bg-amber-200/30 rounded-full blur-2xl pointer-events-none" />
+    <section id="catering" className="py-20 sm:py-28 bg-choco-950 text-white relative overflow-hidden border-b border-white/10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-4">
-              <div className="inline-flex items-center gap-1.5 bg-amber-100 text-amber-900 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                <PartyPopper className="w-3.5 h-3.5 text-amber-800" />
-                <span>Layanan Catering & Pesanan Acara</span>
+      {/* Subtle Warm Backdrop Lighting */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-caramel-600/10 rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container-page relative z-10 space-y-16">
+
+        {/* Section Header */}
+        <div className="max-w-2xl space-y-3">
+          <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-300 bg-white/10 border border-white/15 px-3 py-1 rounded-md">
+            Layanan Catering & Live Cooking
+          </div>
+          <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-white">
+            Hadirkan Panggangan Crepes di Acara Kamu.
+          </h2>
+          <p className="text-base sm:text-lg text-choco-200 leading-relaxed font-normal">
+            Bukan sekadar diantar dalam kotak &mdash; Mas Resi siap bawa kompor loyang putar dan masak langsung (<em>live cooking</em>) di lokasi acara di seluruh Sidoarjo & Candi.
+          </p>
+        </div>
+
+        {/* Feature Split Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+          {/* Real Photo: Live Cooking in Banquet Hall */}
+          <div className="lg:col-span-5 relative group">
+            <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 shadow-2xl aspect-[4/5] bg-choco-900">
+              <img
+                src={STORE_INFO.images.catering}
+                alt="Mas Resi melayani live cooking crepes di acara pernikahan Sidoarjo"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-choco-950 via-transparent to-transparent opacity-80" />
+
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">
+                <span className="text-xs font-black uppercase tracking-wider text-caramel-300 bg-black/40 px-2.5 py-1 rounded inline-block">
+                  Dokumentasi Asli Acara
+                </span>
+                <p className="font-display text-lg font-black leading-snug">
+                  Mas Resi Live Cooking di Acara Resepsi Sidoarjo
+                </p>
+                <p className="text-xs text-choco-200">
+                  Tamu bisa request rasa langsung di depan kompor panas
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Details & Packages */}
+          <div className="lg:col-span-7 space-y-8">
+
+            {/* Practical Notes */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+                <span className="block font-display text-2xl font-black text-caramel-300">Min. 20</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-choco-200">Porsi Minimal</span>
+                <p className="text-xs text-choco-300 pt-1">Bisa pesan jumlah kecil untuk arisan keluarga</p>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-black text-stone-950 tracking-tight leading-tight">
-                Punya Acara Ulang Tahun Anak, Arisan RT, atau Syukuran Warga?
-              </h2>
-
-              <p className="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                Selain mangkal setiap sore di taman perumahan, <strong>Mas Resi Hutomo</strong> melayani pesanan crepes hangat dalam jumlah banyak untuk wilayah Candi & Sidoarjo. Praktis, disukai semua umur dari anak-anak hingga orang dewasa!
-              </p>
-
-              {/* Checklist */}
-              <div className="space-y-2 text-xs sm:text-sm text-stone-700 pt-1">
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[3]" />
-                  <span><strong>Pesanan Ringan:</strong> Mulai dari 20 porsi saja</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[3]" />
-                  <span><strong>Pilihan Rasa Campur:</strong> Bebas mix manis (cokelat, keju, oreo) & sosis gurih</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-emerald-600 shrink-0 stroke-[3]" />
-                  <span><strong>Bisa Diantar / Live Cooking:</strong> Disajikan renyah hangat di tempat acara</span>
-                </div>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+                <span className="block font-display text-2xl font-black text-caramel-300">Live</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-choco-200">Masak di Lokasi</span>
+                <p className="text-xs text-choco-300 pt-1">Atau diantar hangat dalam kemasan siap santap</p>
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="pt-2">
-                <a
-                  href={waCateringUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white text-xs sm:text-sm font-bold px-5 py-3 rounded-2xl shadow-md shadow-green-600/20 hover:shadow-lg transition-all"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  <span>Booking / Konsultasi Catering via WhatsApp</span>
-                </a>
+              <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-1">
+                <span className="block font-display text-2xl font-black text-caramel-300">11 Rasa</span>
+                <span className="block text-xs font-bold uppercase tracking-wider text-choco-200">Bebas Campur</span>
+                <p className="text-xs text-choco-300 pt-1">Tamu bebas pilih rasa manis atau favoritnya</p>
               </div>
             </div>
 
-            {/* Right Packages Cards */}
-            <div className="lg:col-span-5 space-y-3">
-              <span className="text-xs font-bold text-stone-500 uppercase tracking-wider block">
-                Pilihan Paket Catering Paling Laris
+            {/* Packages Box */}
+            <div className="space-y-4">
+              <h3 className="font-display text-xl font-black uppercase tracking-wider text-white">
+                Pilihan Paket Paling Laris:
+              </h3>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {CATERING_PACKAGES.map((pkg) => (
+                  <div
+                    key={pkg.id}
+                    className="p-5 rounded-2xl bg-white/5 border border-white/15 space-y-2 hover:border-caramel-400 transition-colors"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-black uppercase tracking-wider text-caramel-300">
+                        {pkg.portions} Porsi
+                      </span>
+                      <span className="font-display text-xl font-black text-white">
+                        {formatRupiah(pkg.price)}
+                      </span>
+                    </div>
+                    <h4 className="font-display text-lg font-black text-white">
+                      Paket {pkg.name}
+                    </h4>
+                    <p className="text-xs text-choco-300">
+                      {pkg.desc}. Sudah termasuk kemasan corong praktis.
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA to WhatsApp Catering Booking (Zero SVG) */}
+            <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <a
+                href={waLink('Halo Mas Resi Hutomo, saya mau konsultasi jadwal paket catering crepes untuk acara di Sidoarjo.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-caramel-600 hover:bg-caramel-500 text-white font-display text-sm font-extrabold uppercase tracking-wider px-7 py-4 rounded-full transition-all shadow-xl shadow-caramel-950/60 border border-caramel-400/40"
+              >
+                <span>Tanya Jadwal Catering via WhatsApp</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <span className="text-xs text-choco-300 text-center sm:text-left">
+                Pesan H-1 atau H-2 via WhatsApp agar jadwal tidak bentrok.
               </span>
-
-              {/* Package 1 */}
-              <div className="bg-gradient-to-r from-amber-50 to-orange-50/60 p-4 rounded-2xl border border-amber-200 shadow-2xs space-y-1.5 hover:border-amber-400 transition-colors">
-                <div className="flex items-center justify-between">
-                  <span className="bg-amber-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded uppercase">
-                    Paket Ultah Ceria
-                  </span>
-                  <span className="text-base font-black text-amber-800 font-display">Rp 200.000</span>
-                </div>
-                <h4 className="font-bold text-sm text-stone-900">Isi 25 Porsi Manis Campur</h4>
-                <p className="text-xs text-stone-600">
-                  Kombinasi rasa cokelat susu, keju susu, dan oreo crumble. Favorit pesta anak!
-                </p>
-              </div>
-
-              {/* Package 2 */}
-              <div className="bg-gradient-to-r from-amber-50 to-orange-50/60 p-4 rounded-2xl border border-amber-200 shadow-2xs space-y-1.5 hover:border-amber-400 transition-colors">
-                <div className="flex items-center justify-between">
-                  <span className="bg-stone-900 text-white font-extrabold text-[10px] px-2 py-0.5 rounded uppercase">
-                    Paket Arisan & Rapat RT
-                  </span>
-                  <span className="text-base font-black text-amber-800 font-display">Rp 350.000</span>
-                </div>
-                <h4 className="font-bold text-sm text-stone-900">Isi 40 Porsi Manis & Gurih</h4>
-                <p className="text-xs text-stone-600">
-                  Campuran rasa manis legit + sosis keju mayo gurih. Praktis untuk konsumsi kumpul warga.
-                </p>
-              </div>
-
-              <div className="text-[11px] text-stone-500 bg-stone-50 p-2.5 rounded-xl border border-stone-200/80">
-                💡 <em>Pesan H-1 atau H-2 via WhatsApp Mas Resi Hutomo (0889-8905-5777) agar jadwal tidak bentrok.</em>
-              </div>
             </div>
 
           </div>
+
         </div>
 
       </div>

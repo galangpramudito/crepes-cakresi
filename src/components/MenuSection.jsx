@@ -1,224 +1,188 @@
-import React, { useState, useMemo } from 'react';
-import { 
-  MessageCircle, 
-  Sparkles, 
-  Heart, 
-  Award, 
-  PartyPopper, 
-  Coffee, 
-  Search, 
-  Tag, 
-  ChevronRight 
-} from 'lucide-react';
-import { MENU_CATEGORIES, MENU_ITEMS, TOPPINGS_EXTRA } from '../data/menuData';
+import { FLAVORS, PRICE_TIERS } from '../data/menuData';
 import { STORE_INFO } from '../data/storeData';
+import { formatRupiah, waLink } from '../lib/utils';
 
 export default function MenuSection() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const filteredItems = useMemo(() => {
-    return MENU_ITEMS.filter((item) => {
-      const matchCat = selectedCategory === 'all' || item.category === selectedCategory;
-      const matchSearch = 
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchCat && matchSearch;
-    });
-  }, [selectedCategory, searchQuery]);
-
-  const formatRupiah = (val) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0
-    }).format(val);
-  };
-
-  const getWaOrderUrl = (itemName, category) => {
-    let text = '';
-    if (category === 'catering') {
-      text = `Halo Mas Resi Hutomo, saya mau tanya / pesan *${itemName}* untuk acara saya di Sidoarjo. Bisa info ketersediaan tanggalnya?`;
-    } else {
-      text = `Halo Mas Resi Hutomo, mau titip pesan 1x *${itemName}* ya. Nanti saya ambil di lapak Taman Perumahan Mutiara Citra Graha.`;
-    }
-    return `https://wa.me/${STORE_INFO.whatsappNumber}?text=${encodeURIComponent(text)}`;
-  };
-
   return (
-    <section id="menu" className="py-14 sm:py-20 bg-warmcream-50 border-b border-amber-100/70 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+    <section id="menu" className="py-20 sm:py-28 bg-cream-50 text-choco-950 border-b border-choco-200/60">
+      <div className="container-page space-y-16">
+
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-2 mb-8">
-          <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
-            Daftar Menu & Harga
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-stone-950 tracking-tight">
-            Pilihan Menu Lezat & Krispi
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-700 bg-caramel-100 px-3 py-1 rounded-md border border-caramel-200">
+            Daftar Menu & Harga Papan Gerobak
+          </div>
+          <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-choco-950">
+            Pilih Berapa Rasa, <br className="hidden sm:inline" />
+            Campur Sesuka Hati.
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm">
-            Harga jujur, porsi mengenyangkan, topping melimpah. Bisa dinikmati langsung di taman atau pesan antar catering acara!
+          <p className="text-base sm:text-lg text-choco-600 leading-relaxed max-w-2xl font-normal">
+            Harga jujur langsung dari gerobak Mas Resi di Taman Mutiara Citra Graha Bligo. Mau satu rasa santai, dua rasa klasik, atau tiga rasa melimpah.
           </p>
         </div>
 
-        {/* Category Tabs & Search Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mb-8">
-          
-          {/* Category Tabs */}
-          <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 scrollbar-none">
-            {MENU_CATEGORIES.map((cat) => {
-              const isSelected = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-3.5 py-2 rounded-xl text-xs font-bold shrink-0 transition-all ${
-                    isSelected
-                      ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20 scale-105'
-                      : 'bg-white text-stone-700 hover:text-amber-900 hover:bg-amber-50 border border-amber-200/80 shadow-2xs'
-                  }`}
-                >
-                  {cat.name}
-                </button>
-              );
-            })}
-          </div>
+        {/* Real Menu Showcase: Photo Beside Price Tiers */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
 
-          {/* Search Box */}
-          <div className="relative w-full sm:w-72 shrink-0">
-            <Search className="w-4 h-4 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Cari menu (cokelat, keju, sosis)..."
-              className="w-full pl-9 pr-8 py-2 bg-white border border-amber-200/90 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-amber-500/30 focus:border-amber-500 shadow-2xs"
-            />
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-stone-400 hover:text-stone-600 text-[11px] font-bold"
-              >
-                Hapus
-              </button>
-            )}
-          </div>
-
-        </div>
-
-        {/* Menu Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white rounded-3xl border border-amber-200/80 hover:border-amber-400 overflow-hidden shadow-warm hover:shadow-warm-hover hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
-            >
-              <div>
-                {/* Food Image with Hover Zoom */}
-                <div className="relative aspect-[16/10] bg-amber-50 overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-stone-950/60 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
-
-                  {/* Badges */}
-                  <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
-                    {item.badge && (
-                      <span className="bg-amber-500 text-stone-950 font-black text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-wider shadow">
-                        {item.badge}
-                      </span>
-                    )}
-                  </div>
-
-                  {item.category === 'catering' && (
-                    <span className="absolute bottom-3 left-3 bg-red-600 text-white font-extrabold text-[10px] px-2 py-0.5 rounded-md shadow">
-                      Catering Acara
-                    </span>
-                  )}
-                </div>
-
-                {/* Content */}
-                <div className="p-4 sm:p-5 space-y-2">
-                  <div className="flex items-start justify-between gap-2">
-                    <h3 className="font-extrabold text-stone-900 text-base group-hover:text-amber-800 transition-colors">
-                      {item.name}
-                    </h3>
-                  </div>
-
-                  <p className="text-stone-600 text-xs sm:text-sm leading-relaxed line-clamp-2">
-                    {item.description}
-                  </p>
-
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1 pt-1">
-                    {item.tags.map((tag, i) => (
-                      <span key={i} className="text-[10px] font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60">
-                        #{tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+          {/* Left Column: Authentic Photo of Mas Resi Smiling with Cart Menu Board */}
+          <div className="lg:col-span-5 flex flex-col justify-between rounded-3xl overflow-hidden border-2 border-choco-200/80 bg-white shadow-lg p-4 sm:p-5">
+            <div className="relative rounded-2xl overflow-hidden aspect-[3/4] bg-choco-900">
+              <img
+                src={STORE_INFO.images.menuPhoto}
+                alt="Foto asli papan menu di gerobak Crepes Cak Resi bersama Mas Resi Hutomo"
+                className="w-full h-full object-cover object-[center_35%] hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-choco-950/80 via-transparent to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <span className="text-[11px] font-black uppercase tracking-wider text-caramel-300 bg-black/40 px-2 py-0.5 rounded inline-block">
+                  Foto Asli Gerobak
+                </span>
+                <p className="font-display text-base font-black leading-snug mt-1">
+                  Papan Menu Asli di Lapak Mas Resi
+                </p>
+                <p className="text-xs text-choco-200">
+                  Taman Perumahan Mutiara Citra Graha, Desa Bligo
+                </p>
               </div>
+            </div>
 
-              {/* Price & Action Button Footer */}
-              <div className="p-4 sm:p-5 pt-0 mt-2">
-                <div className="pt-3 border-t border-amber-100 flex items-center justify-between gap-2">
-                  <div>
-                    <span className="text-[10px] text-stone-400 block font-medium">Harga</span>
-                    <span className="text-lg font-black text-amber-800 font-display">
-                      {formatRupiah(item.price)}
-                    </span>
+            <div className="pt-4 px-2 space-y-1">
+              <span className="block text-xs font-black uppercase tracking-wider text-caramel-700">
+                Otentik & Nyata
+              </span>
+              <p className="text-xs text-choco-600 leading-relaxed">
+                Foto langsung papan menu kuning legendaris di gerobak motor Mas Resi. Harga tetap murah merakyat sejak 2013.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: 3 Price Cards in Vertical Stack */}
+          <div className="lg:col-span-7 flex flex-col justify-between gap-4">
+            {PRICE_TIERS.map((tier) => {
+              const isFeatured = !!tier.featured;
+              const waOrderMessage = `Halo Mas Resi Hutomo, saya mau pesan crepes *${tier.title}* (${formatRupiah(tier.price)}).`;
+
+              return (
+                <div
+                  key={tier.id}
+                  className={`rounded-2xl p-5 sm:p-6 transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-2 ${isFeatured
+                      ? 'bg-choco-950 text-white border-caramel-500 shadow-xl'
+                      : 'bg-white text-choco-900 border-choco-200/80 shadow-xs'
+                    }`}
+                >
+                  <div className="space-y-1.5 max-w-sm">
+                    <div className="flex items-center gap-2">
+                      <span className={`text-[11px] font-black uppercase tracking-wider px-2 py-0.5 rounded ${isFeatured ? 'bg-caramel-500 text-choco-950' : 'bg-caramel-100 text-caramel-800'
+                        }`}>
+                        {tier.flavors} Rasa
+                      </span>
+                      {isFeatured && (
+                        <span className="text-[11px] font-bold uppercase tracking-wider text-caramel-300">
+                          Paling Puas &bull; Best Value
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="font-display text-2xl font-black uppercase tracking-tight">
+                      {tier.title} &mdash; <span className={isFeatured ? 'text-caramel-300' : 'text-caramel-700'}>{formatRupiah(tier.price)}</span>
+                    </h3>
+
+                    <p className={`text-xs ${isFeatured ? 'text-choco-300' : 'text-choco-600'} leading-relaxed`}>
+                      {tier.note}
+                    </p>
+
+                    {/* Small preview of combos */}
+                    <p className={`text-[11px] font-semibold ${isFeatured ? 'text-choco-400' : 'text-choco-500'} pt-0.5`}>
+                      Favorit: {tier.combos.slice(0, 3).map((c) => c.join('+')).join(' &bull; ')}
+                    </p>
                   </div>
 
                   <a
-                    href={getWaOrderUrl(item.name, item.category)}
+                    href={waLink(waOrderMessage)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all shadow-xs hover:shadow"
+                    className={`shrink-0 inline-flex items-center justify-center gap-1.5 font-display text-xs font-black uppercase tracking-wider py-3 px-5 rounded-xl transition-all ${isFeatured
+                        ? 'bg-caramel-500 hover:bg-caramel-400 text-choco-950'
+                        : 'bg-choco-950 hover:bg-choco-900 text-white'
+                      }`}
                   >
-                    <MessageCircle className="w-3.5 h-3.5" />
-                    <span>{item.category === 'catering' ? 'Tanya Paket' : 'Titip Pesan'}</span>
+                    <span>Pesan {tier.title}</span>
+                    <span aria-hidden="true">&rarr;</span>
                   </a>
                 </div>
-              </div>
+              );
+            })}
 
+            {/* Quick Helper Note */}
+            <div className="p-4 rounded-2xl bg-white border border-choco-200/70 text-xs text-choco-600 flex items-center justify-between">
+              <span>Bisa titip pesan via WA sebelum berangkat ke taman agar siap pas Anda tiba.</span>
+              <a
+                href={waLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-bold text-caramel-700 hover:underline shrink-0 ml-2"
+              >
+                Chat WA &rarr;
+              </a>
             </div>
-          ))}
-        </div>
-
-        {/* Topping Tambahan Box with Food Icons */}
-        <div className="mt-10 bg-white rounded-3xl border border-amber-200/80 p-5 sm:p-6 shadow-sm">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
-            <div>
-              <h4 className="font-black text-stone-900 text-sm sm:text-base flex items-center gap-1.5">
-                <span>🧀</span>
-                <span>Pilihan Topping Tambahan (Extra) di Lapak</span>
-              </h4>
-              <p className="text-xs text-stone-500">
-                Mau lebih melimpah? Bisa minta tambah keju, meses, atau sosis ke Mas Resi langsung saat menggoreng.
-              </p>
-            </div>
-            <span className="text-xs font-bold text-amber-800 bg-amber-50 px-3 py-1 rounded-full border border-amber-200 shrink-0">
-              Mulai +Rp 2.000
-            </span>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 pt-1">
-            {TOPPINGS_EXTRA.map((top, idx) => (
-              <div key={idx} className="bg-amber-50/50 p-2.5 rounded-2xl border border-amber-200/60 flex items-center gap-2">
-                <span className="text-lg">{top.icon}</span>
-                <div>
-                  <strong className="block text-stone-800 text-xs font-bold">{top.name}</strong>
-                  <span className="text-amber-800 text-[11px] font-black">+{formatRupiah(top.price)}</span>
-                </div>
+        </div>
+
+        {/* 11 Flavors Clean Street Typography Grid */}
+        <div className="bg-white rounded-3xl p-6 sm:p-10 border-2 border-choco-200/80 shadow-md space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-choco-100 pb-4">
+            <div>
+              <span className="text-xs font-black uppercase tracking-wider text-caramel-700">Daftar Bahan & Topping</span>
+              <h3 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-choco-950 mt-1">
+                11 Pilihan Rasa Bebas Campur
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-choco-500 font-medium">
+              Sesuai daftar resmi di papan gerobak Mas Resi
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {FLAVORS.map((flavor, i) => (
+              <div
+                key={flavor}
+                className="flex items-center gap-3 p-3.5 rounded-xl bg-cream-50 border border-choco-200/60 hover:border-caramel-500 hover:bg-caramel-50/50 transition-colors"
+              >
+                <span className="font-display text-xs font-black text-caramel-700 opacity-60">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="font-display text-sm sm:text-base font-extrabold text-choco-900">
+                  {flavor}
+                </span>
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Real Signboard Tribute: Anak Yatim & Piatu Gratis */}
+        <div className="rounded-3xl p-6 sm:p-8 bg-gradient-to-r from-caramel-600 via-caramel-700 to-caramel-800 text-white shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-1 max-w-xl">
+            <span className="text-xs font-black tracking-widest uppercase text-caramel-200 bg-black/20 px-3 py-1 rounded-md inline-block">
+              Tradisi Baik di Papan Gerobak
+            </span>
+            <h4 className="font-display text-2xl sm:text-3xl font-black uppercase tracking-tight text-white pt-1">
+              Anak Yatim Atau Piatu: GRATIS
+            </h4>
+            <p className="text-sm sm:text-base text-caramel-100/90 leading-relaxed font-normal">
+              Bagi adik-adik yatim atau piatu, silakan langsung datang ke lapak gerobak Mas Resi di Taman Mutiara Citra Graha. Nikmati crepes hangat renyah tanpa biaya.
+            </p>
+          </div>
+
+          <a
+            href={waLink('Halo Mas Resi Hutomo, saya mau tanya lokasi lapak di taman')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="shrink-0 bg-white hover:bg-cream-100 text-choco-950 font-display text-xs sm:text-sm font-black uppercase tracking-wider px-6 py-3.5 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95"
+          >
+            Mampir ke Lapak &rarr;
+          </a>
         </div>
 
       </div>

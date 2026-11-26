@@ -1,133 +1,147 @@
-import React, { useState } from 'react';
-import { 
-  Menu as MenuIcon, 
-  X, 
-  MessageCircle, 
-  MapPin, 
-  Clock, 
-  Sparkles,
-  PartyPopper
-} from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { STORE_INFO } from '../data/storeData';
+import { waLink, hoursLabel } from '../lib/utils';
+import { useOpenStatus } from '../lib/useOpenStatus';
+
+const NAV_LINKS = [
+  { name: 'Menu & Harga', href: '#menu' },
+  { name: 'Catering Acara', href: '#catering' },
+  { name: 'Tentang Lapak', href: '#tentang' },
+  { name: 'Lokasi', href: '#lokasi' },
+  { name: 'FAQ', href: '#faq' },
+];
 
 export default function Navbar() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { isOpen, openLabel, closeLabel } = useOpenStatus();
 
-  const navLinks = [
-    { name: 'Menu & Harga', href: '#menu' },
-    { name: 'Lokasi Taman', href: '#lokasi' },
-    { name: 'Paket Catering', href: '#catering' },
-    { name: 'Keunggulan', href: '#keunggulan' },
-    { name: 'Galeri', href: '#galeri' },
-    { name: 'FAQ', href: '#faq' },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const navHeight = 72;
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition - navHeight,
-        behavior: 'smooth'
-      });
-    }
-  };
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [open]);
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-amber-100 shadow-xs py-3">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo & Info Gerobak */}
-          <a 
-            href="#beranda" 
-            onClick={(e) => handleNavClick(e, '#beranda')}
-            className="flex items-center gap-2.5 group"
+    <header
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled || open
+          ? 'bg-choco-950/95 backdrop-blur-md border-b border-white/10 shadow-2xl py-3'
+          : 'bg-gradient-to-b from-choco-950/90 via-choco-950/50 to-transparent py-4 sm:py-5'
+        }`}
+    >
+      <div className="container-page flex items-center justify-between gap-4">
+        {/* Brand */}
+        <a
+          href="#beranda"
+          onClick={() => setOpen(false)}
+          className="flex items-center gap-3 group"
+        >
+          <div className="h-10 w-10 rounded-xl bg-caramel-600 flex items-center justify-center font-display font-black text-white text-lg tracking-wider border border-caramel-400/40 group-hover:scale-105 transition-transform">
+            CR
+          </div>
+          <div className="leading-tight">
+            <span className="block font-display text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-caramel-300 transition-colors">
+              {STORE_INFO.brandName}
+            </span>
+            <span className="block text-[11px] font-semibold tracking-wider uppercase text-choco-300">
+              Bligo &bull; Candi &bull; Est. 2013
+            </span>
+          </div>
+        </a>
+
+        {/* Desktop Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 px-3 py-1.5 rounded-full" aria-label="Navigasi">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-choco-200 hover:text-white hover:bg-white/10 rounded-full transition-all"
+            >
+              {link.name}
+            </a>
+          ))}
+        </nav>
+
+        {/* Right CTA / Status */}
+        <div className="flex items-center gap-3">
+          {/* Status Dot */}
+          <div className="hidden sm:flex items-center gap-2 text-xs font-bold px-3 py-1 rounded-full bg-white/5 border border-white/10 text-choco-200">
+            <span className={`h-2 w-2 rounded-full ${isOpen ? 'bg-caramel-400' : 'bg-choco-500'}`} />
+            <span>{isOpen ? `Buka s/d ${closeLabel}` : `Buka ${openLabel} WIB`}</span>
+          </div>
+
+          <a
+            href={waLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden sm:inline-flex items-center gap-1.5 bg-caramel-600 hover:bg-caramel-500 text-white font-display text-xs font-extrabold uppercase tracking-wider px-4 py-2.5 rounded-full transition-colors border border-caramel-400/40 shadow-lg shadow-caramel-900/30"
           >
-            <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-600 to-amber-500 text-white flex items-center justify-center text-xl font-bold shadow-md shadow-amber-500/20 group-hover:scale-105 transition-transform">
-              🥞
-            </div>
-            <div>
-              <div className="flex items-center gap-1.5">
-                <span className="font-display font-black text-lg sm:text-xl tracking-tight text-stone-900 group-hover:text-amber-800 transition-colors">
-                  {STORE_INFO.brandName}
-                </span>
-                <span className="bg-amber-100 text-amber-900 text-[10px] font-extrabold px-1.5 py-0.5 rounded-full">
-                  10+ Thn
-                </span>
-              </div>
-              <span className="text-[11px] text-stone-500 font-medium block">
-                Resi Hutomo &bull; Taman Bligo Candi Sidoarjo
-              </span>
-            </div>
+            Pesan WA &rarr;
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 bg-amber-50/60 border border-amber-200/50 px-4 py-1.5 rounded-full">
-            {navLinks.map((link) => (
+          {/* CSS Hamburger Button (Zero SVG) */}
+          <button
+            type="button"
+            onClick={() => setOpen((prev) => !prev)}
+            className="lg:hidden relative h-10 w-10 flex flex-col items-center justify-center gap-1.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/10 text-white focus:outline-none"
+            aria-label={open ? 'Tutup navigasi' : 'Buka navigasi'}
+            aria-expanded={open}
+          >
+            <span
+              className={`block h-0.5 w-5 bg-white transition-transform duration-200 ${open ? 'rotate-45 translate-y-2' : ''
+                }`}
+            />
+            <span
+              className={`block h-0.5 w-5 bg-white transition-opacity duration-200 ${open ? 'opacity-0' : 'opacity-100'
+                }`}
+            />
+            <span
+              className={`block h-0.5 w-5 bg-white transition-transform duration-200 ${open ? '-rotate-45 -translate-y-2' : ''
+                }`}
+            />
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Drawer (Zero SVG) */}
+      {open && (
+        <div className="fixed inset-x-0 top-[65px] bottom-0 z-40 bg-choco-950 border-t border-white/10 overflow-y-auto px-6 py-6 flex flex-col justify-between lg:hidden animate-in fade-in duration-200">
+          <nav className="space-y-2" aria-label="Navigasi HP">
+            {NAV_LINKS.map((link) => (
               <a
-                key={link.name}
+                key={link.href}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="text-xs font-semibold text-stone-700 hover:text-amber-800 transition-colors py-1"
+                onClick={() => setOpen(false)}
+                className="block py-3 px-3 border-b border-white/5 font-display text-lg font-black uppercase tracking-tight text-white hover:text-caramel-300"
               >
-                {link.name}
+                {link.name} &rarr;
               </a>
             ))}
           </nav>
 
-          {/* Contact Mas Resi via WhatsApp */}
-          <div className="flex items-center gap-2">
+          <div className="pt-6 border-t border-white/10 space-y-4">
+            <div className="text-xs text-choco-300 space-y-1">
+              <p className="font-bold text-white">{STORE_INFO.location.spotName}</p>
+              <p>Setiap hari &bull; {hoursLabel()} WIB</p>
+              <p>Mulai Rp 3.000 &bull; 11 Pilihan Rasa</p>
+            </div>
+
             <a
-              href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20pesan%20crepes`}
+              href={waLink()}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 text-white px-3.5 sm:px-4 py-2 rounded-xl text-xs font-bold transition-all shadow-sm shadow-green-600/20 hover:shadow-md"
+              className="block w-full text-center bg-caramel-600 hover:bg-caramel-500 text-white font-display text-sm font-extrabold uppercase tracking-wider py-3.5 rounded-full"
             >
-              <MessageCircle className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">WA: {STORE_INFO.phone}</span>
-              <span className="sm:hidden">Chat WA</span>
+              Chat Mas Resi via WhatsApp &rarr;
             </a>
-
-            {/* Mobile Toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-stone-700 hover:bg-amber-50 transition-colors"
-              aria-label="Menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
-            </button>
-          </div>
-
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t border-amber-100 px-4 py-3 space-y-2 animate-in slide-in-from-top duration-150">
-          <div className="grid grid-cols-2 gap-1 pb-2 border-b border-stone-100">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className="block py-2 px-2 text-xs font-semibold text-stone-700 hover:text-amber-800 hover:bg-amber-50 rounded-lg transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
-          <div className="pt-2 text-[11px] text-stone-500 flex items-center justify-between">
-            <span className="flex items-center gap-1">
-              <Clock className="w-3.5 h-3.5 text-amber-700" />
-              <span>Buka Sore: <strong>16.00 – 21.30 WIB</strong></span>
-            </span>
-            <span className="text-emerald-700 font-bold bg-emerald-50 px-2 py-0.5 rounded text-[10px]">
-              Taman Bligo
-            </span>
           </div>
         </div>
       )}

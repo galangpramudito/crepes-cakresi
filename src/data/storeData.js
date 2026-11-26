@@ -1,5 +1,5 @@
 export const STORE_INFO = {
-  brandName: 'Crepes Cak Resz',
+  brandName: 'Crepes Cak Resi',
   ownerName: 'Resi Hutomo',
   tagline: 'Kerenyahan Klasik & Topping Melimpah Sejak 2013',
   vendorType: 'Jajanan PKL & Catering Acara',
@@ -9,12 +9,23 @@ export const STORE_INFO = {
   whatsappNumber: '6288989055777',
   targetMarket: 'Semua Umur (Anak-anak, Remaja, hingga Keluarga)',
 
+  // Foto asli lapak & Mas Resi (file di public/images/)
+  images: {
+    hero: '/images/hero-lapak-taman.jpg', // Pemandangan Mas Resi di taman sore
+    menuPhoto: '/images/menu-gerobak-asli.jpg', // Foto Mas Resi senyum di samping papan menu
+    masResi: '/images/hero-mas-resi.jpg', // Foto Mas Resi bawa crepes jempol
+    catering: '/images/live-cooking.jpg', // Live cooking di pesta
+    cart: '/images/gerobak-taman.jpg'
+  },
+
   location: {
     spotName: 'Lapak Gerobak Taman Mutiara Citra Graha',
     street: 'Taman Perumahan Mutiara Citra Graha, Desa Bligo',
     district: 'Kec. Candi, Kabupaten Sidoarjo, Jawa Timur',
     landmark: 'Area taman terbuka / lapangan santai Perumahan Mutiara Citra Graha Bligo',
-    hours: 'Setiap Hari: 16.00 – 21.30 WIB (Sore hingga malam)',
+    hours: 'Setiap Hari: 15.00 – 18.00 WIB (Sore hingga malam)',
+    openTime: '15:00',  // dipakai untuk status "Lagi buka / Tutup" (WIB)
+    closeTime: '18:00',
     payment: 'Tunai & QRIS',
     mapUrl: 'https://maps.google.com/?q=Perumahan+Mutiara+Citra+Graha+Bligo+Candi+Sidoarjo',
     mapEmbedSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15825.861777085732!2d112.710777!3d-7.472911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7e108152c1cb7%3A0x7d6a5068285c5b9!2sMutiara%20Citra%20Graha!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid',
@@ -29,66 +40,26 @@ export const STORE_INFO = {
   }
 };
 
-export const HIGHLIGHTS = [
-  {
-    icon: 'Sparkles',
-    title: 'Garing & Kriuk Tahan Lama',
-    desc: 'Kulit crepes dipanggang keemasan di loyang bundar panas, menghasilkan tekstur renyah yang tahan lama dan tidak mudah letoy.'
-  },
-  {
-    icon: 'Heart',
-    title: 'Topping Mantap & Melimpah',
-    desc: 'Cokelat meses manis lumer, taburan keju cheddar tebal, potongan sosis sapi gurih, dan irisan buah pisang manis alami.'
-  },
-  {
-    icon: 'BadgePercent',
-    title: 'Harga Murah Mulai Rp 7.000',
-    desc: 'Harga bersahabat untuk semua umur, pas di kantong anak sekolah, adik-adik yang main di taman, hingga konsumsi keluarga.'
-  },
-  {
-    icon: 'Clock',
-    title: 'Terpercaya Sejak 2013',
-    desc: 'Lebih dari 10 tahun Mas Resi Hutomo konsisten menjaga kualitas rasa dan melayani pelanggan setia di Candi Sidoarjo.'
-  }
-];
-
-export const TESTIMONIALS = [
-  {
-    name: 'Ibu Maya Lestari',
-    role: 'Warga Blok B, Perum Mutiara Citra Graha',
-    comment: 'Langganan dari jaman anak masih kecil sampai sekarang udah gede. Crepesnya Mas Resi selalu renyah, kejunya melimpah banget dan harganya ramah di kantong.',
-    menuFavorit: 'Choco Cheese Spesial'
-  },
-  {
-    name: 'Mas Aditya Pratama',
-    role: 'Warga Desa Bligo, Candi',
-    comment: 'Cemilan wajib kalau sore lagi nyantai di taman perumahan. Sosis keju mayonya gurih mantap. Mas Resi juga ramah banget dan cepat melayaninya.',
-    menuFavorit: 'Sosis Keju Mayo'
-  },
-  {
-    name: 'Mbak Dewi Anggraini',
-    role: 'Pelanggan Catering Ultah Anak',
-    comment: 'Pesan 35 porsi buat ultah anak di rumah. Disajikan hangat dan anak-anak pada senang banget rebutan crepes garingnya. Praktis banget!',
-    menuFavorit: 'Paket Catering Ultah'
-  }
-];
-
 export const FAQS = [
   {
-    question: 'Di mana lokasi mangkal gerobak Crepes Cak Resz?',
-    answer: 'Kami mangkal setiap sore di area Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kec. Candi, Kabupaten Sidoarjo. Lokasi lapak mudah terlihat di dekat area bermain taman.'
+    question: 'Di mana lokasi crepes terdekat di area Desa Bligo Candi Sidoarjo?',
+    answer: 'Lapak Crepes Cak Resi (Mas Resi Hutomo) berlokasi tepat di area Taman Perumahan Mutiara Citra Graha, Desa Bligo, Kecamatan Candi, Kabupaten Sidoarjo. Sangat mudah dijangkau bagi Anda yang mencari crepes terdekat di wilayah Candi, Tanggulangin, dan sekitarnya. Buka setiap sore pukul 15.00 hingga 18.00 WIB.'
   },
   {
-    question: 'Buka dari jam berapa sampai jam berapa?',
-    answer: 'Gerobak buka setiap hari mulai pukul 16.00 WIB (jam 4 sore) sampai pukul 21.30 WIB malam, atau sampai adonan harian habis.'
+    question: 'Kenapa Crepes Cak Resi disebut salah satu crepes enak dan terbaik di Sidoarjo?',
+    answer: 'Karena Mas Resi Hutomo sudah konsisten berjualan sejak tahun 2013 (lebih dari 10 tahun). Menggunakan bahan berkualitas halal, adonan dipanggang dadakan langsung di loyang putar sehingga menghasilkan kerenyahan keemasan yang tahan lama, topping melimpah, dan harga merakyat mulai Rp 3.000.'
   },
   {
-    question: 'Bagaimana cara pesan crepes untuk acara arisan atau ulang tahun (catering)?',
-    answer: 'Sangat mudah! Cukup hubungi Mas Resi Hutomo langsung via WhatsApp di nomor 0889-8905-5777 minimal H-1 atau H-2 sebelum acara. Kami siap antar atau live cooking di lokasi.'
+    question: 'Berapa harga crepes di Crepes Cak Resi?',
+    answer: 'Harga tergantung jumlah rasa: 1 rasa Rp 3.000, 2 rasa Rp 5.000, dan 3 rasa Rp 7.000. Ada 11 pilihan rasa: Strawberry, Blueberry, Melon, Nanas, Vanilla, Durian, Meses, Oreo, Keju, Milo, dan Coklat. Khusus anak yatim dan piatu, GRATIS.'
   },
   {
-    question: 'Bisa pesan via WhatsApp dulu sebelum mampir ke taman?',
-    answer: 'Bisa sekali! Anda bisa chat WA terlebih dahulu untuk titip pesanan, jadi saat tiba di taman perumahan pesanan crepes sudah siap dan tidak perlu antre lama.'
+    question: 'Bagaimana cara pesan crepes untuk catering acara di Sidoarjo?',
+    answer: 'Anda bisa langsung menghubungi Mas Resi Hutomo via WhatsApp di nomor 0889-8905-5777 minimal H-1 atau H-2 sebelum acara. Kami melayani catering crepes untuk ulang tahun anak, arisan RT/RW, dan rapat warga di area Candi dan Sidoarjo dengan paket hemat mulai dari 20 porsi.'
+  },
+  {
+    question: 'Bisa pesan via WhatsApp dulu sebelum mampir ke lapak taman?',
+    answer: 'Bisa sekali! Anda bisa chat WA terlebih dahulu untuk titip pesanan, jadi saat Anda tiba di taman perumahan crepes sudah siap diambil tanpa perlu lama mengantre.'
   },
   {
     question: 'Metode pembayaran apa saja yang diterima di lapak gerobak?',
@@ -96,35 +67,26 @@ export const FAQS = [
   }
 ];
 
+// Foto dokumentasi asli gerobak & Mas Resi
 export const GALLERY = [
   {
-    url: 'https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80',
-    title: 'Adonan Keemasan di Loyang Panas',
-    desc: 'Dipanggang dadakan selalu hangat'
+    url: '/images/hero-mas-resi.jpg',
+    title: 'Mas Resi Hutomo',
+    desc: 'Peracik crepes legendaris sejak 2013'
   },
   {
-    url: 'https://images.unsplash.com/photo-1506084868230-bb9d95c24759?auto=format&fit=crop&w=800&q=80',
-    title: 'Crepes Lipat Corong Renyah',
-    desc: 'Praktis dinikmati santai di taman'
+    url: '/images/menu-gerobak-asli.jpg',
+    title: 'Papan Menu Asli di Gerobak',
+    desc: 'Harga 1, 2, 3 rasa & anak yatim gratis'
   },
   {
-    url: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=800&q=80',
-    title: 'Topping Sosis & Keju Meleleh',
-    desc: 'Favorit gurih teman ngobrol sore'
+    url: '/images/hero-lapak-taman.jpg',
+    title: 'Suasana Lapak Taman Sore',
+    desc: 'Mangkal di Taman Mutiara Citra Graha Bligo'
   },
   {
-    url: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=80',
-    title: 'Taburan Keju Parut Menggunung',
-    desc: 'Topping banyak dan tidak pelit'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80',
-    title: 'Pisang Cokelat Lumer Mantap',
-    desc: 'Manis legit potongan pisang asli'
-  },
-  {
-    url: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=800&q=80',
-    title: 'Es Teh Melati Jumbo Dingin',
-    desc: 'Penyegar dahaga sempurna'
+    url: '/images/live-cooking.jpg',
+    title: 'Live Cooking Acara Resepsi',
+    desc: 'Mas Resi masak crepes langsung di depan tamu'
   }
 ];

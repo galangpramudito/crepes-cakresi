@@ -1,50 +1,77 @@
-import React from 'react';
 import { GALLERY } from '../data/storeData';
 import { STORE_INFO } from '../data/storeData';
-import { Camera, Sparkles } from 'lucide-react';
 
 export default function GallerySection() {
   return (
-    <section id="galeri" className="py-14 sm:py-20 bg-warmcream-50 border-b border-amber-100/70 relative">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
+    <section id="tentang" className="py-20 sm:py-28 bg-cream-100 text-choco-950 border-b border-choco-200/60">
+      <div className="container-page space-y-16">
+
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto space-y-2 mb-10">
-          <span className="inline-block bg-amber-100 text-amber-900 font-extrabold text-xs uppercase tracking-wider px-3.5 py-1 rounded-full">
-            Dokumentasi & Suasana
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-black text-stone-950 tracking-tight">
-            Galeri Crepes Renyah & Panggangan
+        <div className="max-w-2xl space-y-3">
+          <div className="inline-block text-xs font-black tracking-widest uppercase text-caramel-700 bg-caramel-100 px-3 py-1 rounded-md border border-caramel-200">
+            Dokumentasi & Cerita Lapak
+          </div>
+          <h2 className="font-display text-3xl sm:text-5xl font-black uppercase tracking-tight text-choco-950">
+            Dari Taman Bligo Sejak 2013.
           </h2>
-          <p className="text-stone-600 text-xs sm:text-sm">
-            Intip serunya proses pembuatan crepes garing keemasan langsung di gerobak Mas Resi Hutomo.
+          <p className="text-base sm:text-lg text-choco-600 leading-relaxed font-normal">
+            Bukan franchise mall atau resep instan. Ini jajanan kaki lima otentik racikan <strong>{STORE_INFO.ownerName}</strong> yang setia menemani sore warga Candi selama lebih dari satu dekade.
           </p>
         </div>
 
-        {/* 6 Curated Photos Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6">
-          {GALLERY.map((img, idx) => (
-            <div 
-              key={idx}
-              className="bg-white rounded-3xl overflow-hidden border border-amber-200/80 shadow-warm hover:shadow-warm-hover hover:-translate-y-1 transition-all duration-300 group"
+        {/* 3 Real Truth Points (Non-AI Slop, Authentic Street Realities) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-6 rounded-3xl bg-white border border-choco-200/80 shadow-sm space-y-2">
+            <span className="font-display text-2xl font-black text-caramel-600">01</span>
+            <h3 className="font-display text-lg font-black uppercase text-choco-900">
+              3 Loyang Putar Dadakan
+            </h3>
+            <p className="text-sm text-choco-600 leading-relaxed">
+              Adonan diputar langsung begitu pesanan masuk. Selalu disajikan panas mengepul, kulit garing renyah tidak pernah melempem.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-choco-200/80 shadow-sm space-y-2">
+            <span className="font-display text-2xl font-black text-caramel-600">02</span>
+            <h3 className="font-display text-lg font-black uppercase text-choco-900">
+              Adonan Fresh Tiap Hari
+            </h3>
+            <p className="text-sm text-choco-600 leading-relaxed">
+              Adonan tepung, susu, dan telur segar diracik harian. Tanpa bahan pengawet. Setiap malam adonan habis bersih.
+            </p>
+          </div>
+
+          <div className="p-6 rounded-3xl bg-white border border-choco-200/80 shadow-sm space-y-2">
+            <span className="font-display text-2xl font-black text-caramel-600">03</span>
+            <h3 className="font-display text-lg font-black uppercase text-choco-900">
+              Harga Jujur & Bersahabat
+            </h3>
+            <p className="text-sm text-choco-600 leading-relaxed">
+              Mulai Rp 3.000, ramah untuk anak-anak sekolah yang lagi main di taman, remaja nongkrong, hingga konsumsi keluarga.
+            </p>
+          </div>
+        </div>
+
+        {/* Real Photo Grid: 4 Photos (Zero SVG) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {GALLERY.map((img, i) => (
+            <div
+              key={i}
+              className="group relative rounded-2xl overflow-hidden aspect-[3/4] bg-choco-900 border-2 border-choco-200/60 shadow-md"
             >
-              <div className="aspect-[4/3] overflow-hidden bg-amber-50 relative">
-                <img
-                  src={img.url}
-                  alt={img.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity" />
-                <span className="absolute bottom-2.5 left-2.5 text-white text-[10px] font-bold bg-amber-600/90 backdrop-blur px-2 py-0.5 rounded">
-                  Crepes Cak Resz
-                </span>
-              </div>
-              <div className="p-3.5">
-                <h4 className="text-xs sm:text-sm font-extrabold text-stone-900 truncate group-hover:text-amber-800 transition-colors">
+              <img
+                src={img.url}
+                alt={img.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-choco-950 via-choco-950/20 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
+
+              <div className="absolute bottom-4 left-4 right-4 text-white">
+                <p className="font-display text-sm font-black uppercase tracking-wide">
                   {img.title}
-                </h4>
-                <p className="text-[11px] text-stone-500 mt-0.5 truncate">
+                </p>
+                <p className="text-xs text-choco-200/90 line-clamp-1">
                   {img.desc}
                 </p>
               </div>

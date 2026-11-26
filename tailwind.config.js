@@ -6,35 +6,50 @@ export default {
   ],
   theme: {
     extend: {
+      // Palet hanya 3 keluarga warna: cream (latar), choco (teks/gelap), caramel (aksen)
       colors: {
-        amber: {
-          50: '#fffbeb',
-          100: '#fef3c7',
-          200: '#fde68a',
-          300: '#fcd34d',
-          400: '#fbbf24',
-          500: '#f59e0b',
-          600: '#d97706',
-          700: '#b45309',
-          800: '#92400e',
-          900: '#78350f',
-          950: '#451a03',
+        // Latar krem hangat
+        cream: {
+          50: '#FFFCF7',
+          100: '#FFF7EC',
+          200: '#FCEBD3',
+          300: '#F6DCB8',
         },
-        warmcream: {
-          50: '#FFFDF9',
-          100: '#FFF9EE',
-          200: '#FFF2DB',
-          300: '#FFE6BF',
-        }
+        // Teks & latar gelap (cokelat)
+        choco: {
+          50: '#F8F2ED',
+          100: '#EFE3D9',
+          200: '#DDC8B8',
+          300: '#B89A86',
+          500: '#7A5C4A',
+          600: '#5E4334',
+          700: '#47301F',
+          800: '#33221A',
+          900: '#241812',
+          950: '#170F0B',
+        },
+        // Aksen (karamel / kulit crepes panggang)
+        // 600 = warna tombol (teks putih kontras AA). 300 = aksen di latar cokelat.
+        caramel: {
+          50: '#FFF4E8',
+          100: '#FFE6CC',
+          200: '#FDCB9A',
+          300: '#F9A95E',
+          400: '#F08A33',
+          500: '#E2711B',
+          600: '#BB5410',
+          700: '#9A4410',
+          800: '#7A3612',
+        },
       },
       fontFamily: {
-        sans: ['Plus Jakarta Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', '"Plus Jakarta Sans"', 'sans-serif'],
       },
       boxShadow: {
-        'warm': '0 4px 20px -2px rgba(180, 83, 9, 0.08), 0 2px 6px -1px rgba(180, 83, 9, 0.04)',
-        'warm-hover': '0 12px 30px -4px rgba(180, 83, 9, 0.16), 0 4px 10px -2px rgba(180, 83, 9, 0.08)',
-      }
+        soft: '0 1px 2px rgba(36, 24, 18, 0.04), 0 8px 24px -8px rgba(36, 24, 18, 0.12)',
+        lift: '0 2px 4px rgba(36, 24, 18, 0.05), 0 24px 48px -16px rgba(36, 24, 18, 0.28)',
+      },
     },
   },
   plugins: [],

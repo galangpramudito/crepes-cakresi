@@ -5,34 +5,35 @@ PANDUAN MEMASUKKAN FOTO/GAMBAR KE DALAM WEBSITE
    Masukkan semua foto (JPG, PNG, atau WebP) ke dalam folder ini:
    -> crewebs/public/images/
 
-2. CONTOH PENAMAAN FILE:
-   - hero-crepes.jpg       (Foto utama panggangan crepes di banner paling atas)
-   - choco-cheese.jpg      (Foto crepes cokelat keju)
-   - keju-susu.jpg         (Foto crepes keju susu)
-   - sosis-mayo.jpg        (Foto crepes sosis mayo)
-   - pisang-cokelat.jpg    (Foto crepes pisang cokelat)
-   - es-teh-jumbo.jpg      (Foto es teh manis)
-   - lapak-taman.jpg       (Foto gerobak Mas Resi di Taman Mutiara Citra Graha)
+   Pakai nama file TANPA SPASI, huruf kecil, pisah dengan tanda minus.
+   Contoh: crepes-meses-keju.jpg  (bukan "WhatsApp Image 2026....jpeg")
 
-3. CARA MENGGUNAKANNYA DI KODE:
-   Buka file:
-   - crewebs/src/data/menuData.js   (Untuk mengganti foto menu makanan/minuman)
-   - crewebs/src/data/storeData.js  (Untuk mengganti foto galeri suasana)
+2. FOTO YANG DIPAKAI SEKARANG:
+   - hero-mas-resi.jpg   -> Foto besar di bagian paling atas (hero)
+   - live-cooking.jpg    -> Foto di bagian Catering
+   - gerobak-taman.jpg   -> Galeri
+   - gerobak-malam.jpg   -> Galeri
+   - gerobak-sore.jpg    -> Galeri
 
-   Cukup ubah baris `image:` atau `url:` menjadi:
-   image: '/images/choco-cheese.jpg'
+3. CARA MENGGANTI:
+   Buka file: crewebs/src/data/storeData.js
 
-   Contoh di menuData.js:
-   -------------------------------------------------
-   {
-     id: 'm1',
-     name: 'Choco Cheese Spesial',
-     price: 11000,
-     image: '/images/choco-cheese.jpg',  <-- CUKUP TULIS INI
-     ...
-   }
-   -------------------------------------------------
+   a) Foto hero & catering, ubah bagian:
+      images: {
+        hero: '/images/hero-mas-resi.jpg',
+        catering: '/images/live-cooking.jpg',
+        ...
+      }
+
+   b) Foto galeri, ubah daftar GALLERY:
+      {
+        url: '/images/nama-foto-baru.jpg',
+        title: 'Judul singkat',
+        desc: 'Keterangan singkat'
+      }
+      Galeri paling pas berisi 4 foto (foto pertama tampil paling besar).
 
 4. TIPS:
-   - Gunakan format .webp atau .jpg dengan ukuran di bawah 300KB agar website loading secepat kilat.
-   - Rasio foto 16:9 atau 4:3 paling pas di tampilan kartu menu.
+   - Ukuran file di bawah 300KB agar website cepat dibuka.
+   - Foto hero paling bagus posisi BERDIRI (potret), wajah & crepes terlihat jelas.
+   - Foto crepes close-up (tampak topping) sangat disarankan untuk ditambahkan.

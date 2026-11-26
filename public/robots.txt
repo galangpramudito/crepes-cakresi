@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://crepescakresz.com/sitemap.xml
+Sitemap: https://crepescakresi.com/sitemap.xml

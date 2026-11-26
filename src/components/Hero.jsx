@@ -1,177 +1,121 @@
-import React from 'react';
-import { 
-  MapPin, 
-  Clock, 
-  ArrowRight, 
-  MessageCircle, 
-  Check, 
-  Star,
-  Sparkles,
-  Map
-} from 'lucide-react';
 import { STORE_INFO } from '../data/storeData';
+import { PRICE_TIERS } from '../data/menuData';
+import { formatRupiah, waLink, hoursLabel } from '../lib/utils';
+import { useOpenStatus } from '../lib/useOpenStatus';
 
 export default function Hero() {
+  const { isOpen, closeLabel } = useOpenStatus();
+
   return (
-    <section id="beranda" className="pt-8 pb-14 sm:pt-14 sm:pb-20 bg-gradient-to-b from-amber-50/50 via-[#FFFDF9] to-[#FFFDF9] border-b border-amber-100/70 relative overflow-hidden">
-      
-      {/* Decorative Warm Backlight */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-80 bg-gradient-to-b from-amber-200/25 to-transparent blur-3xl -z-10 pointer-events-none" />
+    <section id="beranda" className="relative min-h-[640px] lg:min-h-[720px] flex flex-col justify-between overflow-hidden bg-choco-950 text-white pt-24 pb-8 sm:pt-28 sm:pb-12">
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          {/* Left Column: Local SEO Optimized Copy */}
-          <div className="lg:col-span-7 space-y-5 text-center lg:text-left">
-            
-            {/* SEO Pill Badge */}
-            <div className="inline-flex items-center gap-2 bg-white border border-amber-200/80 px-3.5 py-1.5 rounded-full text-xs font-semibold text-amber-950 shadow-xs">
-              <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-              <span>Crepes Terdekat di Bligo Candi &bull; Crepes Enak & Terbaik di Sidoarjo</span>
-            </div>
+      {/* Real Background Image with Atmospheric Dusk Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={STORE_INFO.images.hero}
+          alt="Mas Resi Hutomo sedang melayani pembeli di lapak gerobak Taman Mutiara Citra Graha Bligo"
+          fetchPriority="high"
+          className="w-full h-full object-cover object-[55%_65%] filter brightness-[0.95] contrast-[1.08]"
+        />
 
-            {/* Headline with Strong Local Keywords */}
-            <h1 className="text-3xl sm:text-5xl font-black text-stone-950 tracking-tight leading-[1.18]">
-              Rekomendasi <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-amber-600 to-orange-600">Crepes Enak di Sidoarjo</span>, Renyah & Melimpah!
-            </h1>
+        {/* Cinematic Vignette Overlays: Keeps Mas Resi & Taman Landmark Visible While Text is 100% Readable */}
+        {/* Mobile vertical gradient */}
+        <div className="absolute inset-0 bg-gradient-to-t from-choco-950 via-choco-950/85 to-choco-950/60 lg:hidden" />
 
-            {/* Subtitle explicitly integrating targeted local keywords */}
-            <p className="text-sm sm:text-base text-stone-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-              Cari <strong>crepes terdekat</strong> di Candi? Nikmati <strong>crepes Bligo Sidoarjo</strong> khas racikan <strong>Mas Resi Hutomo (sejak 2013)</strong>. Kulit garing keemasan, limpahan cokelat meses, dan sosis keju lezat. Diakui pelanggan sebagai salah satu <strong>crepes terbaik Sidoarjo</strong> dengan harga mulai <strong>Rp 7.000</strong>!
-            </p>
+        {/* Desktop horizontal vignette (dark on left text area, fading toward right where Mas Resi & cart are) */}
+        <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-choco-950 via-choco-950/85 to-choco-950/30" />
 
-            {/* Trust Signal Checkmarks */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1 text-xs text-stone-700 font-semibold max-w-lg mx-auto lg:mx-0">
-              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-xl border border-amber-100 shadow-2xs">
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span>100% Bahan Halal</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-xl border border-amber-100 shadow-2xs">
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span>Mulai Rp 7.000</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-xl border border-amber-100 shadow-2xs">
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span>Dimasak Hangat Dadakan</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-xl border border-amber-100 shadow-2xs">
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span>10+ Thn Terpercaya</span>
-              </div>
-              <div className="flex items-center gap-1.5 bg-white px-2.5 py-1.5 rounded-xl border border-amber-100 shadow-2xs col-span-2 sm:col-span-2">
-                <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                <span>Catering Acara Candi & Sidoarjo</span>
-              </div>
-            </div>
+        {/* Top & bottom subtle blends */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-choco-950/90 via-choco-950/40 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-choco-950 to-transparent" />
+      </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
-              <a
-                href="#menu"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold px-6 py-3 rounded-2xl text-sm transition-all shadow-md shadow-amber-600/20 hover:scale-[1.02]"
-              >
-                <span>Lihat Menu & Harga</span>
-                <ArrowRight className="w-4 h-4" />
-              </a>
+      {/* Main Content Area */}
+      <div className="container-page relative z-10 my-auto py-6 sm:py-8">
+        <div className="max-w-2xl space-y-6 text-left">
 
-              <a
-                href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi%20Hutomo,%20saya%20mau%20pesan%20crepes`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white font-bold px-5 py-3 rounded-2xl text-sm transition-all shadow-md shadow-emerald-700/20"
-              >
-                <MessageCircle className="w-4 h-4" />
-                <span>Pesan WhatsApp</span>
-              </a>
-
-              <a
-                href="#lokasi"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 text-stone-700 hover:text-stone-900 font-semibold px-4 py-3 rounded-2xl text-xs sm:text-sm transition-colors border border-stone-200 bg-white"
-              >
-                <MapPin className="w-4 h-4 text-amber-700" />
-                <span>Lokasi Terdekat</span>
-              </a>
-            </div>
-
-            {/* Location Notice for Local SEO */}
-            <div className="pt-2 text-xs text-stone-500 flex items-center justify-center lg:justify-start gap-1.5">
-              <MapPin className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-              <span>Titik mangkal: <strong>Taman Perum Mutiara Citra Graha, Desa Bligo, Candi - Sidoarjo</strong></span>
-            </div>
-
+          {/* Authentic Local Tag */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-caramel-500/20 border border-caramel-400/30 text-caramel-300 text-xs font-bold tracking-widest uppercase backdrop-blur-sm">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-caramel-400 animate-pulse" />
+            <span>Lapak Gerobak Sejak 2013 &bull; Taman Bligo, Candi</span>
           </div>
 
-          {/* Right Column: Hero Visual with Optimized Alt Tags */}
-          <div className="lg:col-span-5 relative">
-            
-            <div className="bg-white rounded-3xl border-2 border-amber-200/80 p-4 sm:p-5 shadow-xl relative group">
-              
-              {/* Floating Top Badge */}
-              <div className="absolute -top-3 -right-2 bg-gradient-to-r from-red-600 to-amber-600 text-white text-[11px] font-black px-3.5 py-1 rounded-full shadow-md flex items-center gap-1 z-10">
-                <Sparkles className="w-3 h-3 fill-white" />
-                <span>Crepes Terlaris di Taman Bligo</span>
-              </div>
+          {/* Heavyweight Editorial Headline */}
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.05] uppercase text-white">
+            Crepes Renyah, <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-caramel-300 via-caramel-400 to-caramel-200">
+              Topping Gak Pelit.
+            </span>
+          </h1>
 
-              {/* Delicious Crepe Image with High-Value Alt Text */}
-              <div className="relative rounded-2xl overflow-hidden aspect-[4/3] bg-amber-50">
-                <img 
-                  src="https://images.unsplash.com/photo-1519869325930-281384150729?auto=format&fit=crop&w=800&q=80" 
-                  alt="Crepes enak Sidoarjo - Crepes Cak Resz Bligo Candi rasa cokelat keju renyah"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950/70 via-transparent to-transparent" />
-                
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="bg-amber-500 text-stone-950 font-black text-[10px] px-2 py-0.5 rounded uppercase">
-                    Signature Menu
-                  </span>
-                  <h3 className="text-lg font-extrabold mt-1">Choco Cheese Spesial</h3>
-                  <p className="text-xs text-amber-100">Crepes renyah cokelat lumer & taburan keju tebal</p>
-                </div>
-              </div>
+          {/* Direct, Honest Street Food Description */}
+          <p className="text-base sm:text-lg text-choco-100/90 leading-relaxed max-w-xl font-normal">
+            Racikan asli <strong>Mas Resi Hutomo</strong> langsung di atas loyang putar panas. Jajanan sore favorit warga Taman Mutiara Citra Graha Candi sejak 2013. Renyah keemasan, dimasak dadakan mulai <strong className="text-white underline decoration-caramel-400 decoration-2 underline-offset-4">Rp 3.000</strong>.
+          </p>
 
-              {/* Price & Action Bar */}
-              <div className="mt-3.5 pt-3 border-t border-amber-100 flex items-center justify-between">
-                <div>
-                  <span className="text-[11px] text-stone-400 block font-medium">Harga di Lapak</span>
-                  <span className="text-xl font-black text-amber-800 font-display">Rp 11.000</span>
-                </div>
+          {/* Action Row (Zero SVG) */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+            <a
+              href={waLink()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 bg-caramel-600 hover:bg-caramel-500 text-white font-display text-sm sm:text-base font-extrabold uppercase tracking-wider px-7 py-4 rounded-full transition-all shadow-xl shadow-caramel-950/50 hover:scale-[1.02] active:scale-[0.98] border border-caramel-400/40"
+            >
+              <span>Pesan WhatsApp Sekarang</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
 
-                <a
-                  href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi,%20mau%20pesan%20Choco%20Cheese%20Spesial%20ya`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-amber-600 hover:bg-amber-700 text-white text-xs font-bold px-3.5 py-2 rounded-xl transition-all shadow-xs flex items-center gap-1.5"
-                >
-                  <MessageCircle className="w-3.5 h-3.5" />
-                  <span>Pesan Varian Ini</span>
-                </a>
-              </div>
+            <a
+              href="#menu"
+              className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-display text-sm sm:text-base font-bold uppercase tracking-wider px-6 py-4 rounded-full transition-all border border-white/15 backdrop-blur-sm"
+            >
+              <span>Lihat Menu & Harga</span>
+              <span aria-hidden="true">&darr;</span>
+            </a>
+          </div>
 
-              {/* 3 Metric Pills under Card */}
-              <div className="grid grid-cols-3 gap-2 mt-3 pt-3 border-t border-stone-100 text-center text-xs">
-                <div className="bg-amber-50/70 p-2 rounded-xl border border-amber-100">
-                  <strong className="block font-black text-stone-900">10+ Thn</strong>
-                  <span className="text-[10px] text-stone-500">Sejak 2013</span>
-                </div>
-                <div className="bg-amber-50/70 p-2 rounded-xl border border-amber-100">
-                  <strong className="block font-black text-stone-900">14+ Menu</strong>
-                  <span className="text-[10px] text-stone-500">Varian Rasa</span>
-                </div>
-                <div className="bg-amber-50/70 p-2 rounded-xl border border-amber-100">
-                  <strong className="block font-black text-stone-900">Rp 7.000</strong>
-                  <span className="text-[10px] text-stone-500">Mulai Dari</span>
-                </div>
-              </div>
+          {/* Live Status Subtext */}
+          <p className="text-xs text-choco-300/80 pt-1">
+            {isOpen ? (
+              <span className="text-caramel-300 font-bold">&bull; Lapak sedang buka di taman sampai {closeLabel} WIB</span>
+            ) : (
+              <span>&bull; Jam mangkal: {hoursLabel()} WIB di Taman Mutiara Citra Graha</span>
+            )}
+            {' '}&bull; Pembayaran Tunai & QRIS
+          </p>
 
+        </div>
+      </div>
+
+      {/* Bottom Board Strip: Direct Pricing & Generosity Note (Zero SVG) */}
+      <div className="container-page relative z-10 pt-4">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-3 p-4 sm:p-5 rounded-2xl bg-choco-900/90 border border-white/10 backdrop-blur-md">
+
+          {/* Price Quick Look */}
+          <div className="md:col-span-8 flex flex-wrap items-center justify-between sm:justify-start gap-4 sm:gap-8">
+            <div className="text-xs uppercase tracking-wider text-choco-400 font-bold block sm:hidden md:block">
+              Harga Lapak:
             </div>
+            {PRICE_TIERS.map((tier) => (
+              <div key={tier.id} className="flex items-baseline gap-2">
+                <span className="text-xs font-bold text-choco-300 uppercase tracking-wide">{tier.title}:</span>
+                <span className="font-display text-lg sm:text-xl font-black text-caramel-300">
+                  {formatRupiah(tier.price)}
+                </span>
+              </div>
+            ))}
+          </div>
 
+          {/* Special Banner from the cart */}
+          <div className="md:col-span-4 flex items-center justify-start md:justify-end border-t md:border-t-0 md:border-l border-white/10 pt-2 md:pt-0 md:pl-4">
+            <span className="text-xs font-black uppercase tracking-wider text-caramel-200 bg-caramel-500/20 border border-caramel-400/40 px-3 py-1.5 rounded-lg">
+              Anak Yatim / Piatu: GRATIS
+            </span>
           </div>
 
         </div>
-
       </div>
+
     </section>
   );
 }

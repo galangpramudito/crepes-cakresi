@@ -1,28 +1,27 @@
-# 🥞 Crepes Cak Resz - Landing Page Jajanan Kaki Lima
+# 🥞 Crepes Cak Resi - Landing Page Jajanan Kaki Lima
 
-Landing page statis, bersih, dan ramah untuk UMKM kuliner gerobak kaki lima **Crepes Cak Resz**. Dibuat dengan **React 18 + Vite + Tailwind CSS**, tanpa sistem digitalisasi yang berlebihan, mencerminkan identitas lapak kaki lima yang otentik dan merakyat.
+Landing page statis, bersih, dan ramah untuk UMKM kuliner gerobak kaki lima **Crepes Cak Resi**. Dibuat dengan **React 18 + Vite + Tailwind CSS**, tanpa sistem digitalisasi yang berlebihan, mencerminkan identitas lapak kaki lima yang otentik dan merakyat.
 
 ---
 
 ## 📌 Karakteristik & Fitur
 
 1. **Konsep Kaki Lima Otentik**:
-   - Satu titik lapak mangkal (depan Alfamidi Pandanaran, samping lapangan voli).
-   - Jam mangkal sore hingga malam: **16.00 - 22.00 WIB** (atau sampai adonan habis).
-   - Tanpa bahasa korporat atau klaim resep rahasia; fokus pada: renyah, topping melimpah, dan dimasak dadakan di gerobak.
+   - Satu titik lapak mangkal: Taman Perum Mutiara Citra Graha, Desa Bligo, Candi, Sidoarjo.
+   - Jam mangkal sore hingga malam: **15.00 - 18.00 WIB** (atau sampai adonan habis).
+   - Badge "Lagi buka / Tutup" otomatis mengikuti jam WIB (atur di `storeData.js` → `openTime` / `closeTime`).
 
-2. **Daftar Menu & Harga Papan Gerobak**:
-   - **Crepes Manis**: Cokelat Susu (Rp 7rb), Keju Susu (Rp 9rb), Choco Cheese Spesial (Rp 11rb), Pisang Cokelat Keju (Rp 13rb), Strawberry Susu (Rp 8rb), Oreo Susu (Rp 10rb).
-   - **Crepes Gurih**: Sosis Mayo (Rp 10rb), Sosis Keju Mayo (Rp 12rb), Smoked Beef Mayo (Rp 14rb).
-   - **Minuman Dingin**: Es Teh Manis Jumbo (Rp 4rb), Es Jeruk Peras (Rp 5rb), Air Mineral (Rp 3rb).
-   - **Pilihan Topping Tambahan**: Extra Keju, Extra Cokelat, Sosis, Pisang, Oreo (+Rp 2rb - 3rb).
+2. **Daftar Menu & Harga (sesuai papan gerobak)** — diatur di `src/data/menuData.js`:
+   - **1 Rasa**: Rp 3.000 · **2 Rasa**: Rp 5.000 · **3 Rasa**: Rp 7.000
+   - **11 Rasa**: Strawberry, Blueberry, Melon, Nanas, Vanilla, Durian, Meses, Oreo, Keju, Milo, Coklat.
+   - **Anak yatim / piatu: GRATIS.**
+   - **Catering**: Paket Ultah Anak 25 porsi (Rp 200rb), Paket Arisan 40 porsi (Rp 350rb).
 
 3. **Tanpa Digitalisasi Berlebihan**:
    - Tidak ada keranjang belanja e-commerce atau form checkout yang rumit.
    - Tersedia tombol cepat **"Titip Pesan via WA"** untuk pelanggan yang ingin memesan terlebih dahulu agar tidak perlu antre lama saat tiba di gerobak.
 
 4. **Informasi Lokasi Mangkal**:
-   - Patokan jelas (tenda payung kuning gerobak Cak Resz di pelataran minimarket).
    - Peta Google Maps embed langsung ke titik mangkal.
    - Pembayaran: Tunai & QRIS gerobak.
 

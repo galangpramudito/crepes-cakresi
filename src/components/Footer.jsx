@@ -1,14 +1,5 @@
-import React from 'react';
-import { 
-  MessageCircle, 
-  MapPin, 
-  Clock, 
-  ArrowUp, 
-  User, 
-  Sparkles,
-  Award
-} from 'lucide-react';
 import { STORE_INFO } from '../data/storeData';
+import { waLink, hoursLabel } from '../lib/utils';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -16,106 +7,100 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-stone-950 text-stone-300 text-xs pt-14 pb-10 border-t-2 border-amber-500/20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pb-10 border-b border-stone-800">
-          
-          {/* Brand Info & Local SEO Description */}
-          <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-2.5">
-              <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-amber-600 to-amber-400 text-white flex items-center justify-center text-xl font-bold shadow-md">
-                🥞
+    <footer className="bg-choco-950 text-white border-t border-white/10 pt-16 pb-12">
+      <div className="container-page space-y-12">
+
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 items-start">
+
+          {/* Brand Info */}
+          <div className="md:col-span-5 space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="h-10 w-10 rounded-xl bg-caramel-600 flex items-center justify-center font-display font-black text-white text-lg tracking-wider border border-caramel-400/40">
+                CR
               </div>
               <div>
-                <span className="font-display font-black text-xl text-white tracking-tight block">
+                <span className="block font-display text-xl font-black tracking-tight text-white">
                   {STORE_INFO.brandName}
                 </span>
-                <span className="text-[11px] text-amber-400 font-bold block">
-                  Crepes Enak & Terbaik di Sidoarjo
+                <span className="block text-xs uppercase tracking-wider text-caramel-300 font-bold">
+                  Kuliner Kaki Lima Sejak 2013
                 </span>
               </div>
             </div>
 
-            <p className="text-stone-400 text-xs leading-relaxed max-w-sm">
-              Rekomendasi <strong>crepes terdekat</strong> dan <strong>crepes Bligo Sidoarjo</strong> khas Mas Resi Hutomo. Pilihan <strong>crepes terbaik Sidoarjo</strong> dengan tekstur renyah keemasan, topping berlimpah, dan harga merakyat sejak 2013.
+            <p className="text-sm text-choco-300 leading-relaxed max-w-sm font-normal">
+              Crepes renyah racikan <strong>{STORE_INFO.ownerName}</strong> di Taman Perumahan Mutiara Citra Graha, Desa Bligo, Candi &mdash; Sidoarjo. Melayani pesanan lapak harian dan catering acara hajatan.
             </p>
 
-            <div className="text-[11px] text-stone-400 pt-1 flex items-center gap-2">
-              <span className="bg-stone-900 border border-stone-800 text-amber-300 font-bold px-3 py-1 rounded-full flex items-center gap-1.5">
-                <User className="w-3.5 h-3.5" />
-                <span>Pemilik: {STORE_INFO.ownerName}</span>
-              </span>
-              <span className="bg-stone-900 border border-stone-800 text-stone-300 font-bold px-3 py-1 rounded-full">
-                Sejak {STORE_INFO.since}
+            <div className="pt-1">
+              <span className="inline-block text-xs font-black uppercase tracking-wider bg-white/5 border border-white/10 text-choco-200 px-3 py-1.5 rounded-full">
+                Pemilik: {STORE_INFO.ownerName} &bull; Sejak 2013
               </span>
             </div>
           </div>
 
-          {/* Lokasi Mangkal & Area Layanan */}
-          <div className="md:col-span-4 space-y-2">
-            <h4 className="font-bold text-white text-xs uppercase tracking-wider">
-              Lokasi & Area Layanan
-            </h4>
-            <div className="bg-stone-900/80 p-3.5 rounded-2xl border border-stone-800 space-y-1">
-              <strong className="text-amber-400 block text-xs">
-                {STORE_INFO.location.spotName}
-              </strong>
-              <p className="text-stone-300 text-xs leading-relaxed">
-                {STORE_INFO.location.street}
-              </p>
-              <p className="text-stone-400 text-[11px]">
-                {STORE_INFO.location.district}
-              </p>
-              <p className="text-[11px] text-stone-500 pt-1 border-t border-stone-800 mt-2">
-                Buka: <strong>{STORE_INFO.location.hours}</strong>
-              </p>
-            </div>
+          {/* Quick Links */}
+          <div className="md:col-span-3 space-y-3">
+            <span className="block text-xs font-black uppercase tracking-wider text-caramel-400">
+              Navigasi Halaman:
+            </span>
+            <ul className="space-y-2 text-sm font-semibold text-choco-200">
+              <li>
+                <a href="#menu" className="hover:text-caramel-300 transition-colors">Daftar Menu & 11 Rasa &rarr;</a>
+              </li>
+              <li>
+                <a href="#catering" className="hover:text-caramel-300 transition-colors">Layanan Catering Acara &rarr;</a>
+              </li>
+              <li>
+                <a href="#tentang" className="hover:text-caramel-300 transition-colors">Dokumentasi Lapak &rarr;</a>
+              </li>
+              <li>
+                <a href="#lokasi" className="hover:text-caramel-300 transition-colors">Titik Lokasi Taman Bligo &rarr;</a>
+              </li>
+              <li>
+                <a href="#faq" className="hover:text-caramel-300 transition-colors">Tanya Jawab (FAQ) &rarr;</a>
+              </li>
+            </ul>
           </div>
 
-          {/* Kontak & Catering */}
-          <div className="md:col-span-3 space-y-2">
-            <h4 className="font-bold text-white text-xs uppercase tracking-wider">
-              Pemesanan & Catering Acara
-            </h4>
-            <div className="space-y-2 text-xs">
-              <a
-                href={`https://wa.me/${STORE_INFO.whatsappNumber}?text=Halo%20Mas%20Resi,%20saya%20mau%20tanya%20menu%20dan%20pesanan%20crepes`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-emerald-700/30 border border-emerald-600/50 hover:bg-emerald-700/50 text-emerald-300 font-bold px-3.5 py-2 rounded-xl transition-colors w-full"
-              >
-                <MessageCircle className="w-4 h-4 text-emerald-400" />
-                <span>WhatsApp: {STORE_INFO.phone}</span>
-              </a>
-              <p className="text-[11px] text-stone-500 leading-snug">
-                Melayani pesanan PKL harian dan paket catering crepes untuk ulang tahun anak, arisan RT, dan syukuran di Sidoarjo.
-              </p>
+          {/* Contact Direct */}
+          <div className="md:col-span-4 space-y-3">
+            <span className="block text-xs font-black uppercase tracking-wider text-caramel-400">
+              Kontak & Pemesanan:
+            </span>
+            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 space-y-2 text-sm text-choco-200">
+              <p className="font-bold text-white">Lapak Taman Mutiara Citra Graha</p>
+              <p className="text-xs text-choco-300">Setiap Hari &bull; {hoursLabel()} WIB</p>
+              <p className="text-xs text-choco-300">WhatsApp: <strong className="text-white">{STORE_INFO.phone}</strong></p>
+
+              <div className="pt-2">
+                <a
+                  href={waLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block w-full text-center bg-caramel-600 hover:bg-caramel-500 text-white font-display text-xs font-extrabold uppercase tracking-wider py-2.5 px-3 rounded-xl transition-all"
+                >
+                  Chat WhatsApp Sekarang &rarr;
+                </a>
+              </div>
             </div>
           </div>
 
         </div>
 
-        {/* Local SEO Keyword Tag Cloud Strip */}
-        <div className="py-4 border-b border-stone-800/60 flex flex-wrap gap-2 items-center text-[11px] text-stone-500">
-          <span className="font-bold text-stone-400">Pencarian Terkait:</span>
-          <span className="hover:text-amber-400 transition-colors">Crepes Terdekat</span> &bull;
-          <span className="hover:text-amber-400 transition-colors">Crepes Bligo Sidoarjo</span> &bull;
-          <span className="hover:text-amber-400 transition-colors">Crepes Enak Sidoarjo</span> &bull;
-          <span className="hover:text-amber-400 transition-colors">Crepes Terbaik Sidoarjo</span> &bull;
-          <span className="hover:text-amber-400 transition-colors">Crepes Candi Sidoarjo</span> &bull;
-          <span className="hover:text-amber-400 transition-colors">Catering Crepes Sidoarjo</span>
-        </div>
+        {/* Bottom Bar (Zero SVG) */}
+        <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-choco-400">
+          <p>
+            &copy; {new Date().getFullYear()} <strong>{STORE_INFO.brandName}</strong> &bull; Resi Hutomo. Candi, Sidoarjo, Jawa Timur.
+          </p>
 
-        {/* Bottom Bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-stone-500 text-center sm:text-left">
-          <p>© {new Date().getFullYear()} <strong>{STORE_INFO.brandName}</strong> (Mas Resi Hutomo). Pilihan Crepes Terdekat, Enak, dan Terbaik di Candi, Sidoarjo.</p>
           <button
+            type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-stone-400 hover:text-amber-400 transition-colors bg-stone-900 px-3 py-1.5 rounded-xl border border-stone-800"
+            className="text-xs font-bold uppercase tracking-wider text-choco-300 hover:text-caramel-300 transition-colors py-1 px-3 rounded bg-white/5 border border-white/10"
           >
-            <span>Kembali ke Atas</span>
-            <ArrowUp className="w-3.5 h-3.5" />
+            Kembali ke Atas &uarr;
           </button>
         </div>
 
